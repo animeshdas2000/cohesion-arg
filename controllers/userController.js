@@ -1,4 +1,3 @@
-const User = require ('../models/user');
 const firebase = require ('../db');
 
 exports.signup = async function (req, res) {

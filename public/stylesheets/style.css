@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   background-color: black;
 }
 
@@ -40,14 +40,14 @@ a {
   font-size: 20px;
 }
 .section-header {
-  font-family: "Monteserrat", sans-serif;
+  font-family: 'Monteserrat', sans-serif;
   font-size: 6rem;
   margin-bottom: 10px;
   -webkit-text-stroke: 3px aqua;
   color: transparent;
   text-align: center;
 }
-@media screen (max-width: 840px) {
+@media screen and (max-width: 840px) {
   .container {
     margin: 0;
   }

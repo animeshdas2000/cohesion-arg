@@ -101,8 +101,22 @@ $ (function () {
       isPassword ($ ('#password').val ()) &&
       isContact ($ ('#contact').val ())
     ) {
+      $ ('#name').val ('');
+      $ ('#instname').val ('');
+      $ ('#dob').val ('');
+      $ ('#email').val ('');
+      $ ('#password').val ('');
+      $ ('#contact').val ('');
       $ ('#msg').text ('');
       register ();
     } else $ ('#msg').text ('Please enter valid input!');
   });
+
+  function disableBack () {
+    window.history.forward ();
+  }
+  window.onload = disableBack ();
+  window.onpageshow = function (evt) {
+    if (evt.persisted) disableBack ();
+  };
 });

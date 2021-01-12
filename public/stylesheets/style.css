@@ -43,6 +43,7 @@ a {
 }
 .error {
   color: #f44336;
+  font-weight: 700;
 }
 .section-header {
   font-family: "Monteserrat", sans-serif;

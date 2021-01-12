@@ -30,16 +30,19 @@ a {
   border-radius: 10px;
   padding: 20px 30px;
   margin: 10px 0;
-  width: 95%;
+  width: 70%;
   font-size: 20px;
 }
 .auth-btn {
-  background-color: #00b7ff;
+  background-color: #00e5ff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 20px;
   text-align: center;
+}
+.error {
+  color: #f44336;
 }
 .section-header {
   font-family: "Monteserrat", sans-serif;
@@ -65,6 +68,5 @@ input::-webkit-inner-spin-button {
     font-size: 5rem;
   }
   .auth-input {
-    width: auto;
   }
 }

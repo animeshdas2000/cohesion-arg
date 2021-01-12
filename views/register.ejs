@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register for ARG</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/register.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register for ARG</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="scripts/register.js"></script>
-</head>
-
-<body>
-  <main>
-    <div class="container">
-      <h1 class="section-header">Register</h1>
-      <div class="reg-box">
-        <input class="auth-input" type="text" placeholder="Name" id="name" />
-        <div id="name_error"></div>
-        <input class="auth-input" type="text" placeholder="Institution Name" id="instname" />
-        <div id="instname_error"></div>
-        <input class="auth-input" type="number" placeholder="Contact No." id="contact" />
-        <div id="contact_error"></div>
-        <input class="auth-input" type="email" placeholder="Email" id="email" />
-        <div id="email_error"></div>
-        <input class="auth-input" type="date" placeholder="DoB" id="dob" />
-        <div id="dob_error"></div>
-        <input class="auth-input" type="password" placeholder="Password" id="password" />
-        <div id="password_error"></div>
-        <button class="auth-btn" id="register">Register</button>
-        <div id="msg"></div>
+  <body>
+    <main>
+      <div class="container">
+        <h1 class="section-header">Register</h1>
+        <div class="reg-box">
+          <input class="auth-input" type="text" placeholder="Name" id="name" />
+          <div id="name_error" class="error"></div>
+          <input
+            class="auth-input"
+            type="text"
+            placeholder="Institution Name"
+            id="instname"
+          />
+          <div id="instname_error" class="error"></div>
+          <input
+            class="auth-input"
+            type="number"
+            placeholder="Contact No."
+            id="contact"
+          />
+          <div id="contact_error" class="error"></div>
+          <input
+            class="auth-input"
+            type="email"
+            placeholder="Email"
+            id="email"
+          />
+          <div id="email_error" class="error"></div>
+          <input class="auth-input" type="date" placeholder="DoB" id="dob" />
+          <div id="dob_error" class="error"></div>
+          <input
+            class="auth-input"
+            type="password"
+            placeholder="Password"
+            id="password"
+          />
+          <div id="password_error" class="error"></div>
+          <button class="auth-btn" id="register">Register</button>
+          <div id="msg"></div>
+        </div>
       </div>
-    </div>
-  </main>
-</body>
-
+    </main>
+  </body>
 </html>

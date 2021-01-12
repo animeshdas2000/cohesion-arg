@@ -13,4 +13,5 @@ router.get ('/registrationsuccess', function (req, res, next) {
   res.render ('registrationsuccess');
 });
 
+
 module.exports = router;

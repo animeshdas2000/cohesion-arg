@@ -31,11 +31,11 @@ function sendEmail (name, email) {
   let transporter = nodemailer.createTransport ({
     service: 'Gmail',
     auth: {
-      user: process.env.SENDER_EMAIL,
-      pass: process.env.SENDER_EMAIL_PASS,
+      user: "cohesion2021@gmail.com",
+      pass: "C0he$!0n2021",
     },
   });
-  ejs.renderFile (process.env.SUCCESS_EMAIL, {name: name}, function (
+  ejs.renderFile ("public/pages/Registration-Success.html", {name: name}, function (
     err,
     data
   ) {

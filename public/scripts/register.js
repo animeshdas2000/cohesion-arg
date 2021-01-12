@@ -50,6 +50,22 @@ function register () {
 }
 
 $ (function () {
+  $ ('#name').keyup (function () {
+    if ($ ('#name').val ().length < 4) {
+      $ ('#name_error').text ('Please enter at least 4 characters.');
+    } else {
+      $ ('#name_error').text ('');
+    }
+  });
+
+  $ ('#instname').keyup (function () {
+    if ($ ('#instname').val ().length < 4) {
+      $ ('#instname_error').text ('Please enter at least 4 characters.');
+    } else {
+      $ ('#instname_error').text ('');
+    }
+  });
+
   $ ('#contact').keyup (function () {
     if (!isContact ($ ('#contact').val ())) {
       $ ('#contact_error').text ('Please enter a 10 digit contact number.');
@@ -78,10 +94,14 @@ $ (function () {
 
   $ ('#register').click (function () {
     if (
+      $ ('#name').val ().length > 4 &&
+      $ ('#instname').val ().length > 4 &&
+      Date.parse ($ ('#dob').val ()) > 1 &&
       isEmail ($ ('#email').val ()) &&
       isPassword ($ ('#password').val ()) &&
       isContact ($ ('#contact').val ())
     ) {
+      $ ('#msg').text ('');
       register ();
     } else $ ('#msg').text ('Please enter valid input!');
   });

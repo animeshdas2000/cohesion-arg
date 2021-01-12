@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const cors = require('cors');
 var logger = require('morgan');
+const firebase = require('firebase');
+const config = require('./config');
+firebase.initializeApp(config.firebaseConfig);
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

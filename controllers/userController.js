@@ -1,6 +1,7 @@
-const firebase = require ('../db');
+const firebase = require ('firebase').default;
 const nodemailer = require ('nodemailer');
 const ejs = require ('ejs');
+/** @type {import("express").RequestHandler} */
 
 exports.signup = async function (req, res) {
   firebase

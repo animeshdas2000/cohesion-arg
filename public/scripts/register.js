@@ -52,27 +52,27 @@ function register () {
 $ (function () {
   $ ('#contact').keyup (function () {
     if (!isContact ($ ('#contact').val ())) {
-      $ ('#msg').text ('Please enter a 10 digit contact number.');
+      $ ('#contact_error').text ('Please enter a 10 digit contact number.');
     } else {
-      $ ('#msg').text ('');
+      $ ('#contact_error').text ('');
     }
   });
 
   $ ('#email').keyup (function () {
     if (!isEmail ($ ('#email').val ())) {
-      $ ('#msg').text ('Please enter a valid email address');
+      $ ('#email_error').text ('Please enter a valid email address');
     } else {
-      $ ('#msg').text ('');
+      $ ('#email_error').text ('');
     }
   });
 
   $ ('#password').keyup (function () {
     if (!isPassword ($ ('#password').val ())) {
-      $ ('#msg').text (
+      $ ('#password_error').text (
         'Password should be 8-15 characters long with at least one numeric digit and one uppercase letter.'
       );
     } else {
-      $ ('#msg').text ('');
+      $ ('#password_error').text ('');
     }
   });
 
@@ -83,6 +83,6 @@ $ (function () {
       isContact ($ ('#contact').val ())
     ) {
       register ();
-    } else $ ('#msg').text ('Please enter valid values!');
+    } else $ ('#msg').text ('Please enter valid input!');
   });
 });

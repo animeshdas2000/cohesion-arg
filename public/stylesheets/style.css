@@ -47,6 +47,11 @@ a {
   color: transparent;
   text-align: center;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 @media screen and (max-width: 840px) {
   .container {
     margin: 0;

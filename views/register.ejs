@@ -15,14 +15,21 @@
     <div class="container">
       <h1 class="section-header">Register</h1>
       <div class="reg-box">
-        <input class="auth-input" type="text" placeholder="Name" id="name" />
-        <input class="auth-input" type="text" placeholder="Institution Name" id="instname" />
-        <input class="auth-input" type="text" placeholder="Contact No." id="contact" />
-        <input class="auth-input" type="email" placeholder="Email" id="email" />
-        <input class="auth-input" type="date" placeholder="DoB" id="dob" />
-        <input class="auth-input" type="password" placeholder="Password" id="password" />
-        <button class="auth-btn" id="register">Register</button>
-        <h6 id="msg"></h6>
+        <form>
+          <input class="auth-input" type="text" placeholder="Name" id="name" minlength="4" required />
+          <div></div>
+          <input class="auth-input" type="text" placeholder="Institution Name" id="instname" minlength="6" required />
+          <div></div>
+          <input class="auth-input" type="number" placeholder="Contact No." id="contact" required />
+          <div id="contact_error"></div>
+          <input class="auth-input" type="email" placeholder="Email" id="email" required />
+          <div id="email_error"></div>
+          <input class="auth-input" type="date" placeholder="DoB" id="dob" required />
+          <input class="auth-input" type="password" placeholder="Password" id="password" minlength="8" maxlength="15" required />
+          <div id="password_error"></div>
+          <button class="auth-btn" id="register" type="submit">Register</button>
+        </form>
+        <div id="msg"></div>
       </div>
     </div>
   </main>

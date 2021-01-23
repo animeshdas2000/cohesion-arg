@@ -45,7 +45,7 @@ function sendEmail (name, email) {
     } else {
       var mainOptions = {
         to: email,
-        subject: '[COHESION] Successfully Registered!',
+        subject: '[COHESION] Registration Successfull!',
         html: data,
       };
       transporter.sendMail (mainOptions, function (err, info) {

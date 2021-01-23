@@ -101,6 +101,7 @@ $ (function () {
       isPassword ($ ('#password').val ()) &&
       isContact ($ ('#contact').val ())
     ) {
+      register ();
       $ ('#name').val ('');
       $ ('#instname').val ('');
       $ ('#dob').val ('');
@@ -108,7 +109,6 @@ $ (function () {
       $ ('#password').val ('');
       $ ('#contact').val ('');
       $ ('#msg').text ('');
-      register ();
     } else $ ('#msg').text ('Please enter valid input!');
   });
 

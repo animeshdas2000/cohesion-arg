@@ -41,7 +41,7 @@ function register () {
     }),
     success: function (data) {
       $ ('#msg').text (data.msg);
-      window.location.href = 'https://play.cohesion.ieeencu.tech/registrationsuccess';
+      window.location = '/register/success';
     },
     error: function (jqXhr, textStatus, errorMessage) {
       $ ('#msg').text (jqXhr.responseJSON.msg);
@@ -94,8 +94,8 @@ $ (function () {
 
   $ ('#register').click (function () {
     if (
-      $ ('#name').val ().length > 4 &&
-      $ ('#instname').val ().length > 4 &&
+      $ ('#name').val ().length >= 4 &&
+      $ ('#instname').val ().length >= 4 &&
       Date.parse ($ ('#dob').val ()) > 1 &&
       isEmail ($ ('#email').val ()) &&
       isPassword ($ ('#password').val ()) &&

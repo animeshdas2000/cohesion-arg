@@ -41,7 +41,7 @@ function register () {
     }),
     success: function (data) {
       $ ('#msg').text (data.msg);
-      window.location = '/registrationsuccess';
+      window.location.href = 'https://play.cohesion.ieeencu.tech/registrationsuccess';
     },
     error: function (jqXhr, textStatus, errorMessage) {
       $ ('#msg').text (jqXhr.responseJSON.msg);

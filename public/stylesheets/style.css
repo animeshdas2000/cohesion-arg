@@ -85,13 +85,18 @@ input::-webkit-inner-spin-button {
 }
 .reg-suc-div {
   color: white;
-  margin: 20px 20%;
+  margin: 20px 10%;
   text-align: center;
 }
 .reg-suc-div > h5 {
   text-align: center;
+  font-size: 1.5em;
 }
-
+.social-icon {
+  color: white;
+  font-size: 1.5rem;
+  margin: 10px;
+}
 @media screen and (max-width: 840px) {
   .container {
     margin: 30px;

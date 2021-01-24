@@ -7,6 +7,7 @@ const cors = require('cors');
 var logger = require('morgan');
 const firebase = require('firebase');
 const config = require('./config');
+var favicon = require('serve-favicon');
 firebase.initializeApp(config.firebaseConfig);
 
 
@@ -34,7 +35,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

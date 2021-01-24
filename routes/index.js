@@ -4,7 +4,8 @@ const index_controller = require ('../controllers/indexController');
 
 /* GET home page. */
 router.get ('/', function (req, res, next) {
-  res.render ('index', {title: 'Cohesion'});
+  // res.render ('index', {title: 'Cohesion'});
+  res.redirect("https://cohesion.ieeencu.tech");
 });
 
 router.get ('/register', index_controller.register);

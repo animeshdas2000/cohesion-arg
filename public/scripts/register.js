@@ -111,12 +111,4 @@ $ (function () {
       $ ('#msg').text ('');
     } else $ ('#msg').text ('Please enter valid input!');
   });
-
-  function disableBack () {
-    window.history.forward ();
-  }
-  window.onload = disableBack ();
-  window.onpageshow = function (evt) {
-    if (evt.persisted) disableBack ();
-  };
 });

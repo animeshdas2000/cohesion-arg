@@ -83,6 +83,15 @@ input::-webkit-inner-spin-button {
 #password_error {
   width: fit-content;
 }
+.reg-suc-div {
+  color: white;
+  margin: 20px 20%;
+  text-align: center;
+}
+.reg-suc-div > h5 {
+  text-align: center;
+}
+
 @media screen and (max-width: 840px) {
   .container {
     margin: 30px;

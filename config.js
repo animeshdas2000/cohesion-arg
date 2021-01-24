@@ -34,6 +34,7 @@
 // };
 
 //PRODUCTION - cohesion2021@gmail.com
+
 module.exports = {
   firebaseConfig: {
     apiKey: "AIzaSyAp3knh5rFd_B0m240P59laXXfNYxET7no",

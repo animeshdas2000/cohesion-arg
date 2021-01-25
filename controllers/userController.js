@@ -14,6 +14,9 @@ exports.signup = async function (req, res) {
         contact: req.body.contact,
         dob: req.body.dob,
       });
+      response.user.updateProfile ({
+        displayName: req.body.name,
+      });
       sendEmail (req.body.name, req.body.email);
       res.status (200).send ({msg: 'Registration successful!'});
     })
@@ -32,29 +35,30 @@ function sendEmail (name, email) {
   let transporter = nodemailer.createTransport ({
     service: 'Gmail',
     auth: {
-      user: "cohesion2021@gmail.com",
-      pass: "C0he$!0n2021",
+      user: 'cohesion2021@gmail.com',
+      pass: 'C0he$!0n2021',
     },
   });
-  ejs.renderFile ("public/pages/Registration-Success.html", {name: name}, function (
-    err,
-    data
-  ) {
-    if (err) {
-      console.log (err);
-    } else {
-      var mainOptions = {
-        to: email,
-        subject: '[COHESION] Registration Successfull!',
-        html: data,
-      };
-      transporter.sendMail (mainOptions, function (err, info) {
-        if (err) {
-          console.log (err);
-        } else {
-          console.log ('Email Sent');
-        }
-      });
+  ejs.renderFile (
+    'public/pages/Registration-Success.html',
+    {name: name},
+    function (err, data) {
+      if (err) {
+        console.log (err);
+      } else {
+        var mainOptions = {
+          to: email,
+          subject: '[COHESION] Registration Successfull!',
+          html: data,
+        };
+        transporter.sendMail (mainOptions, function (err, info) {
+          if (err) {
+            console.log (err);
+          } else {
+            console.log ('Email Sent');
+          }
+        });
+      }
     }
-  });
+  );
 }

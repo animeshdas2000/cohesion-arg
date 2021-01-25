@@ -91,11 +91,13 @@ input::-webkit-inner-spin-button {
 .reg-suc-div > h5 {
   text-align: center;
   font-size: 1.5em;
+  margin: 20px 10%;
 }
 .social-icon {
   color: white;
   font-size: 1.5rem;
   margin: 10px;
+  text-align: center;
 }
 @media screen and (max-width: 840px) {
   .container {
@@ -103,8 +105,14 @@ input::-webkit-inner-spin-button {
   }
   .section-header {
     font-size: 5rem;
+    margin: 20px 20%;
   }
-
+  .social-icon {
+    text-align: center;
+  }
+  h5 {
+    width: max-content;
+  }
   .nav-links {
     display: none;
   }

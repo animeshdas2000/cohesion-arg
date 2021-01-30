@@ -8,7 +8,7 @@ var logger = require('morgan');
 const firebase = require('firebase');
 const config = require('./config');
 
-firebase.initializeApp(config.firebaseConfig);
+firebase.initializeApp(config.firebaseConfigDev);
 
 
 var indexRouter = require('./routes/index');

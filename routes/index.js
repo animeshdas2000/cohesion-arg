@@ -14,5 +14,6 @@ router.get ('/register/success', function (req, res, next) {
   res.render ('registrationsuccess');
 });
 
+router.get('/login', index_controller.login);
 
 module.exports = router;

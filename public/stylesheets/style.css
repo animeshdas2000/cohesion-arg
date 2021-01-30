@@ -45,6 +45,16 @@ a {
   justify-items: center;
   width: 90%;
 }
+.login-box {
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #e9e7e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 50%;
+}
 .auth-input {
   color: white;
   background-color: #111511;
@@ -62,6 +72,14 @@ a {
   padding: 10px 20px;
   font-size: 20px;
   text-align: center;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+.auth-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .error {
   color: #f44336;
@@ -130,7 +148,15 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     cursor: pointer;
   }
-
+  .login-box {
+    width: auto;
+  }
+  .auth-btns {
+    flex-direction: column;
+  }
+  .auth-btn {
+    margin: 10px 0;
+  }
   #pencet span {
     background-color: ghostwhite;
     width: 2em;

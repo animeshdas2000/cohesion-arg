@@ -38,6 +38,7 @@ function sendEmail (name, email) {
       user: 'cohesion2021@gmail.com',
       pass: 'C0he$!0n2021',
     },
+    from: 'cohesion2021@gmail.com',
   });
   ejs.renderFile (
     'public/pages/Registration-Success.html',

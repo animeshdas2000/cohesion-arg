@@ -3,5 +3,4 @@ exports.register = function (req, res) {
 };
 exports.login = (req,res) => {
   res.render('login');
-  
 }

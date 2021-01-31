@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register for Cohesion</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="scripts/register.js"></script>
-    <%- include('partials/favicon') %>
-  </head>
 
-  <body>
-    <main>
-      <div class="container">
-        <%- include('partials/navbar') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Cohesion</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <%- include('partials/favicon') %>
+    <%- include('partials/configureFirebase') %>
+      <script src="scripts/indexedDB.js"></script>
+      <script src="scripts/login.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <%- include('partials/navbar') %>
         <h1 class="section-header">Login</h1>
         <div class="login-box">
-          <input
-            class="auth-input"
-            type="email"
-            placeholder="Email"
-            id="email"
-          />
+          <input class="auth-input" type="email" placeholder="Email" id="email" />
           <div id="email_error" class="error"></div>
 
-          <input
-            class="auth-input"
-            type="password"
-            placeholder="Password"
-            id="password"
-          />
+          <input class="auth-input" type="password" placeholder="Password" id="password" />
           <div id="password_error" class="error"></div>
           <br />
           <div class="auth-btns">
             <button class="auth-btn" id="login">Login</button>
 
-            <a href="" style="color: #1b1b1b; text-decoration: none"
-              >Forgot Password?</a
-            >
+            <a href="" style="color: #1b1b1b; text-decoration: none">Forgot Password?</a>
           </div>
 
           <br />
           <div id="msg" class="error"></div>
         </div>
-      </div>
-    </main>
-    <div style="height: 100px"></div>
-  </body>
+    </div>
+  </main>
+  <div style="height: 100px"></div>
+</body>
+
 </html>

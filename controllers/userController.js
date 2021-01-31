@@ -45,7 +45,6 @@ function sendEmail (name, email) {
     {name: name},
     function (err, data) {
       if (err) {
-        console.log (err);
       } else {
         var mainOptions = {
           to: email,
@@ -54,9 +53,7 @@ function sendEmail (name, email) {
         };
         transporter.sendMail (mainOptions, function (err, info) {
           if (err) {
-            console.log (err);
           } else {
-            console.log ('Email Sent');
           }
         });
       }

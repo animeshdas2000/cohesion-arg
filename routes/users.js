@@ -5,6 +5,6 @@ const auth = require ('../middlewares/auth');
 
 router.post ('/signup', user_controller.signup);
 
-router.post ('/signin', user_controller.signin);
+
 
 module.exports = router;

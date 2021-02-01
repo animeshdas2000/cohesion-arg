@@ -25,18 +25,7 @@ exports.signup = async function (req, res) {
     });
 };
 
-exports.signin = async function (req, res) {
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(req.body.email,req.body.password)
-    .then(()=>{
-      res.get('/login');
-      console.log('Login Successful')
-    })
-    .catch((error)=>{
-      res.status (406).send ({msg: error.toString ()});
-    })
-};
+
 
 exports.signout = async function (req, res) {};
 

@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cohesion | ARG-CTF</title>
+    <title>LeaderBoard</title>
     <%- include('partials/style.ejs') %>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <%- include('partials/configureFirebase') %>
   </head>
-
-  <body style="color: white">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -63,12 +60,31 @@
         </div>
       </div>
     </nav>
-    <main class="container">
-      <p style="text-align: center">
-        Email ID: <%= details.email %>
-        <br />
-        Display Name: <%= details.displayName %>
-      </p>
+    <main>
+      <div class="container">
+        <table class="lb-table">
+          <tr class="lb-tr">
+            <th class="lb-th">Rank</th>
+            <th class="lb-th">Hacker</th>
+            <th class="lb-th">Score</th>
+          </tr>
+          <tr class="lb-tr">
+            <td class="lb-td">1</td>
+            <td class="lb-td">Ayden</td>
+            <td class="lb-td">Lol</td>
+          </tr>
+          <tr class="lb-tr">
+            <td class="lb-td">1</td>
+            <td class="lb-td">Yugansh</td>
+            <td class="lb-td">Wins</td>
+          </tr>
+          <tr class="lb-tr">
+            <td class="lb-td">1</td>
+            <td class="lb-td">Vibhuti</td>
+            <td class="lb-td">Topper</td>
+          </tr>
+        </table>
+      </div>
     </main>
   </body>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

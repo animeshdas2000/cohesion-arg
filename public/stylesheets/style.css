@@ -1,23 +1,35 @@
 body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: black;
+  background-color: #1b1b1b;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
 }
 
 a {
   color: #00b7ff;
 }
+p,
+h2,
+h3,
+h4,
+h5 {
+  color: white;
+}
 .container {
-  margin: 0 10%;
-  display: flex;
   align-items: center;
-  flex-direction: column;
 }
 .nav-links {
   display: flex;
   justify-content: center;
 }
-
+.icon {
+  color: white;
+  font-size: 1.5rem;
+}
 .nav-links > li {
   padding: 20px;
   font-size: 1.3rem;
@@ -178,4 +190,30 @@ input::-webkit-inner-spin-button {
   .Diam span:nth-child(3) {
     transform: rotate(-45deg) translate(1px, 0);
   }
+}
+
+.lb-table {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lb-td,
+.lb-th {
+  text-align: left;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.lb-td {
+  margin: 5px;
+}
+.lb-tr {
+  color: #f44336;
+  margin: 10px;
+  background-color: #00b7ff;
+}
+.lb-tr:nth-child(even) {
+  background-color: #dddddd;
+  color: #1b1b1b;
 }

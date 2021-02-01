@@ -3,14 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cohesion | ARG-CTF</title>
+    <title>Profile</title>
     <%- include('partials/style.ejs') %>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <%- include('partials/configureFirebase') %>
   </head>
-
-  <body style="color: white">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -54,7 +52,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#">Profile</a>
-
+                  <a class="dropdown-item" href="#">Discord</a>
                   <a class="dropdown-item" href="#">Log Out</a>
                 </div>
               </div>
@@ -63,12 +61,15 @@
         </div>
       </div>
     </nav>
+
     <main class="container">
-      <p style="text-align: center">
+      <h4>
         Email ID: <%= details.email %>
         <br />
         Display Name: <%= details.displayName %>
-      </p>
+        <br />
+        Institution: <%= details.institutionName%>
+      </h4>
     </main>
   </body>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

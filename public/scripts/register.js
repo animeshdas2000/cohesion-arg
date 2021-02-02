@@ -38,6 +38,7 @@ function register () {
       email: $ ('#email').val (),
       password: $ ('#password').val (),
       dob: $ ('#dob').val (),
+      referredBy: $ ('#referredBy').val(),
     }),
     success: function (data) {
       $ ('#msg').text (data.msg);
@@ -109,6 +110,7 @@ $ (function () {
       $ ('#password').val ('');
       $ ('#contact').val ('');
       $ ('#msg').text ('');
+      
     } else $ ('#msg').text ('Please enter valid input!');
   });
 });

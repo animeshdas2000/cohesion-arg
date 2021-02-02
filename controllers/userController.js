@@ -13,6 +13,7 @@ exports.signup = async function (req, res) {
         institution: req.body.institution,
         contact: req.body.contact,
         dob: req.body.dob,
+        referredBy: req.body.referredBy,
       });
       response.user.updateProfile ({
         displayName: req.body.name,
@@ -38,7 +39,7 @@ function sendEmail (name, email) {
       user: 'cohesion2021@gmail.com',
       pass: 'C0he$!0n2021',
     },
-    from: 'cohesion2021@gmail.com',
+    from: 'Cohesion 2021',
   });
   ejs.renderFile (
     'public/pages/Registration-Success.html',

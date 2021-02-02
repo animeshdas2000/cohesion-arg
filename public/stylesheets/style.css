@@ -195,20 +195,27 @@ input::-webkit-inner-spin-button {
 .lb-table {
   color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
+.lb-thead {
+  border-radius: 10px;
+}
 .lb-td,
 .lb-th {
   text-align: left;
   border-radius: 5px;
-  padding: 10px 20px;
+}
+.lb-th {
+  margin: 10px 20px;
 }
 .lb-td {
   margin: 5px;
 }
 .lb-tr {
+  padding: 10px 20px;
+  display: flex;
   color: #f44336;
   margin: 10px;
   background-color: #00b7ff;
@@ -216,4 +223,29 @@ input::-webkit-inner-spin-button {
 .lb-tr:nth-child(even) {
   background-color: #dddddd;
   color: #1b1b1b;
+}
+
+.level-h2 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+}
+.c-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(19, 19, 19, 0.527);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 20%;
+}
+.challenge-input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #1b1b1b;
+}
+.challenge-input:active {
+  border: none;
 }

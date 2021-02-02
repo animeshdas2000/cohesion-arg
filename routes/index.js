@@ -19,6 +19,10 @@ router.get('/profile',auth,(req,res,next)=>{
 router.get('/leaderboard',(req,res)=>{
   res.render('leaderboard.ejs');
 })
+
+router.get('/challenge',auth,(req,res,next)=>{
+  res.render('challenge',{detial:req.user});
+})
 router.get ('/login', index_controller.login);
 
 module.exports = router;

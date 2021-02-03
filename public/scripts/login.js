@@ -31,7 +31,6 @@ function isPassword (input) {
 }
 
 $ (function () {
-
   $ ('#email').keyup (function () {
     if (!isEmail ($ ('#email').val ())) {
       $ ('#email_error').text ('Please enter a valid email address');
@@ -47,6 +46,12 @@ $ (function () {
       );
     } else {
       $ ('#password_error').text ('');
+    }
+  });
+
+  $ ('#password').keyup (function (event) {
+    if (event.keyCode === 13) {
+      $ ('#login').click ();
     }
   });
 

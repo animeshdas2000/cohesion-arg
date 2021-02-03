@@ -48,6 +48,7 @@ module.exports = {
   firebaseConfigDev: {
     apiKey: 'AIzaSyBkJBgfFK9_YkwilwdKnhiqY7RFh8AvtEM',
     authDomain: 'cohesion-c4eed.firebaseapp.com',
+    databaseURL: "https://cohesion-c4eed-default-rtdb.firebaseio.com",
     projectId: 'cohesion-c4eed',
     storageBucket: 'cohesion-c4eed.appspot.com',
     messagingSenderId: '626347142382',

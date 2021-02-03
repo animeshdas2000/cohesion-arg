@@ -25,10 +25,6 @@ exports.signup = async function (req, res) {
     });
 };
 
-
-
-exports.signout = async function (req, res) {};
-
 exports.update = function (req, res) {};
 
 function sendEmail (name, email) {
@@ -38,7 +34,7 @@ function sendEmail (name, email) {
       user: 'cohesion2021@gmail.com',
       pass: 'C0he$!0n2021',
     },
-    from:'Cohesion 2021'
+    from: 'Cohesion 2021',
   });
   ejs.renderFile (
     'public/pages/Registration-Success.html',

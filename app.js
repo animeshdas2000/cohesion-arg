@@ -8,11 +8,11 @@ var logger = require ('morgan');
 const firebase = require ('firebase');
 const admin = require ('firebase-admin');
 const config = require ('./config');
-
 firebase.initializeApp (config.firebaseConfigDev);
 var serviceAccount = require ('./cohesion-c4eed-firebase-adminsdk-zb8ao-bd34d4ddad.json');
 admin.initializeApp ({
   credential: admin.credential.cert (serviceAccount),
+  databaseURL: 'https://cohesion-c4eed-default-rtdb.firebaseio.com',
 });
 
 var indexRouter = require ('./routes/index');

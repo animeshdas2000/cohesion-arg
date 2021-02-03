@@ -1,75 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cohesion | ARG-CTF</title>
-    <%- include('partials/style.ejs') %>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cohesion | ARG-CTF</title>
+  <%- include('partials/style.ejs') %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
     <%- include('partials/configureFirebase') %>
-  </head>
+</head>
 
-  <body style="color: white">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="/img/white-cohesion.png" alt="" width="200px" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarSupportedContent"
-        >
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="#" class="nav-link">LeaderBoard</a>
-            </li>
-            <li class="nav-item"><a href="#" class="nav-link">Discord</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Challenges</a>
-            </li>
-            <li class="nav-item">
-              <div class="dropdown">
-                <button
-                  class="btn btn-info dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-user-circle-o icon"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Profile</a>
-
-                  <a class="dropdown-item" href="#">Log Out</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+<body style="color: white">
+  <%- include('partials/navbar.ejs') %>
+  <main class="container">
+    <h1 class="section-header">Game begins in </h1>
+    <br>
+    <div class="container" id="clockdiv">
+      <div>
+        <span class="days"></span>
+        <div class="smalltext">Days</div>
       </div>
-    </nav>
-    <main class="container">
-      <p style="text-align: center">
-        Email ID: <%= details.email %>
-        <br />
-        Display Name: <%= details.displayName %>
-      </p>
-    </main>
-  </body>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+      <div>
+        <span class="hours"></span>
+        <div class="smalltext">Hours</div>
+      </div>
+      <div>
+        <span class="minutes"></span>
+        <div class="smalltext">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds"></span>
+        <div class="smalltext">Seconds</div>
+      </div>
+    </div>
+    <br><br>
+    <br><br>
+    <div class="container text-center">
+      <button class="auth-btn" id="arg">ARG</button>
+      <button class="auth-btn" id="ctf">CTF</button>
+    </div>
+  </main>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </html>

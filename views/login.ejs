@@ -29,7 +29,8 @@
           <div class="auth-btns">
             <button class="auth-btn" id="login">Login</button>
             <br>
-            <a href="" style="color: #1b1b1b; text-decoration: none">Forgot Password?</a>
+            <a id="forgotPass" href="#" style="color: #1b1b1b; text-decoration: none">Forgot
+              Password?</a>
           </div>
           <br>
           <div class="error text-center" id="msg"></div>
@@ -37,6 +38,27 @@
       </div>
     </main>
     <div style="height: 100px"></div>
+
+    <div class="modal fade" id="resetPass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #1b1b1b">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Reset Password</h4>
+          </div>
+          <div class="modal-body mt-2">
+            <div>
+              <input type="email" id="resetEmail" placeholder="Enter email address" class="form-control validate">
+              <p id="reset-error" class="error pt-3 text-center"></p>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="auth-btn waves-effect" id="#reset" onclick="resetPassword()">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
 
 </html>

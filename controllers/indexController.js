@@ -7,7 +7,7 @@ exports.index = function (req, res) {
   var userData;
   var ref = firestore.collection ('users').doc (`${req.uid}`);
   ref
-    .get ({source: 'cache'})
+    .get ()
     .then (function (doc) {
       userData = doc.data ();
       if (!userData.hasOwnProperty ('arglevel')) {

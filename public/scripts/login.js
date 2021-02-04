@@ -12,6 +12,24 @@ function login () {
     });
 }
 
+function resetPassword () {
+  console.log ('Clicked....');
+  if (isEmail ($ ('#resetEmail').val ())) {
+    firebase
+      .auth ()
+      .sendPasswordResetEmail ($ ('#resetEmail').val ())
+      .then (function () {
+        $ ('#reset-error').text (
+          'An email containing the reset password link has been sent.'
+        );
+      })
+      .catch (function (error) {
+        $ ('#reset-error').text (error.message);
+      });
+    $ ('#resetEmail').val ('');
+  } else $ ('#reset-error').text ('Please enter valid input!');
+}
+
 function isEmail (input) {
   var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   if (filter.test (input)) {
@@ -39,6 +57,14 @@ $ (function () {
     }
   });
 
+  $ ('#resetEmail').keyup (function () {
+    if (!isEmail ($ ('#resetEmail').val ())) {
+      $ ('#reset-error').text ('Please enter a valid email address');
+    } else {
+      $ ('#reset-error').text ('');
+    }
+  });
+
   $ ('#password').keyup (function () {
     if (!isPassword ($ ('#password').val ())) {
       $ ('#password_error').text (
@@ -62,5 +88,9 @@ $ (function () {
       $ ('#password').val ('');
       $ ('#msg').text ('');
     } else $ ('#msg').text ('Please enter valid input!');
+  });
+
+  $ ('#forgotPass').click (function () {
+    $ ('#resetPass').modal ('show');
   });
 });

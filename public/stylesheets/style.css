@@ -162,6 +162,11 @@ input::-webkit-inner-spin-button {
   padding-top: 5px;
   font-size: 16px;
 }
+.table-light > tr > th,
+.table-dark > th,
+.table-dark > td {
+  border-radius: 5px;
+}
 
 @media screen and (max-width: 840px) {
   .section-header {
@@ -219,7 +224,7 @@ input::-webkit-inner-spin-button {
   color: white;
   font-weight: 900;
   border-collapse: separate;
-  border-spacing: 10px;
+  border-spacing: 10px 5px;
 }
 
 .lb-th {

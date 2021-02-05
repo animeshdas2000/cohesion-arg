@@ -195,7 +195,7 @@ var arg = {
     answer: 'SIMM',
   },
   '2': {
-    question: '<img src="https://i.ibb.co/S3JNv1V/image.jpg"/><br><br><img src="https://i.ibb.co/zXsnnxv/image-1.jpg"/>',
+    question: '<img src="https://i.ibb.co/S3JNv1V/image.jpg" width="300px"/><br><br><img src="https://i.ibb.co/zXsnnxv/image-1.jpg" width="500px"/>',
     answer: 'QCERT',
   },
   '3': {

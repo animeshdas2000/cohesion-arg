@@ -20,26 +20,22 @@
           <tr>
             <th>Rank</th>
             <th>Player</th>
-            <th>ARG Level</th>
+            <th>Score</th>
           </tr>
         </thead>
-        <% leaderboard.forEach(function(player,index){ %>
+       
           <tr class="table-dark">
             <th>
-              <%= index+1 %>
+            1
             </th>
             <td>
-              <%= player.name %>
+              Name
             </td>
             <td>
-              <% if(player.arglevel==19){ %>
-                Completed!
-                <% } else{ %>
-                  <%= player.arglevel %>
-                    <% } %>
+             Score
             </td>
           </tr>
-          <% }); %>
+          
             </tbody>
       </table>
     </div>

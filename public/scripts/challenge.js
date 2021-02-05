@@ -9,9 +9,6 @@ function submitARGAnswer () {
     }),
     success: function (data) {
       location.reload();
-      // if (data.level == 19) location.reload();
-      // $ ('#level').text (data.level);
-      // $ ('#question').text (data.question);
       toastr.options = {
         newestOnTop: true,
         positionClass: 'toast-bottom-center',
@@ -51,9 +48,7 @@ function submitARGAnswer () {
 $ (function () {
   $ ('#submitARG').click (function () {
     if ($ ('#answer').val ().length >= 1) {
-      console.log ($ ('#answer').val ().toUpperCase());
       submitARGAnswer ();
-      $ ('#answer').val ('');
       $ ('#answer_error').text ('');
     } else $ ('#answer_error').text ('Answer cannot be blank!');
   });

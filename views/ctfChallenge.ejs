@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ARG | Cohesion</title>
-    <%- include('partials/style.ejs') %> <%-
-    include('partials/configureFirebase') %>
-    <link rel="stylesheet" href="/stylesheets/toastr.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="scripts/challenge.js"></script>
-  </head>
 
-  <body>
-    <%- include('partials/navbar.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARG | Cohesion</title>
+  <%- include('partials/style.ejs') %>
+    <%- include('partials/configureFirebase') %>
+      <link rel="stylesheet" href="/stylesheets/toastr.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <script src="scripts/challenge.js"></script>
+</head>
+
+<body>
+  <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
-        <h2 class="h1-white">CTF <span id="level"> Name </span></h2>
+        <h2 class="h1-white">
+          <%= challenge.title %></span>
+        </h2>
         <br /><br />
 
         <div class="c-box p-5">
-          <p class="question text-center pb-2" id="question">Desc<br /></p>
-          <p class="question text-center">
-            <span style="font-size: 16px"
-              ><a
-                href=""
-                style="color: white; text-align: center; text-decoration: none"
-                ><i class="fa fa-download"></i>File</a
-              ></span
-            >
+          <p class="question text-center pb-2" id="question">
+            <%= challenge.question %><br />
           </p>
-          <p class="text-center">Author</p>
-          <p class="text-center">Points</p>
-          <input
-            class="challenge-input mx-auto d-block"
-            id="answer"
-            type="text"
-            placeholder="cohesion.ctf{}"
-          />
+          <p class="question text-center">
+            <span style="font-size: 16px"><a
+                href="https://drive.google.com/uc?export=download&id=<%= challenge.driveId %>"
+                style="color: white; text-align: center; text-decoration: none"><i
+                  class="fa fa-download"></i>File</a></span>
+          </p>
+          <p class="text-center">
+            <%= challenge.points %> Points || Category: <%= challenge.category %>
+          </p>
+          <input class="challenge-input mx-auto d-block" id="answer" type="text" placeholder="cohesion.ctf{}" />
           <br />
           <div id="answer_error" class="error text-center"></div>
           <br />
@@ -49,6 +47,7 @@
         </div>
       </div>
     </main>
-  </body>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </html>

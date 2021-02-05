@@ -87,7 +87,7 @@ exports.argSubmit = function (req, res) {
   rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
     level = snapshot.val ().arglevel;
     var ref = firestore.collection ('users').doc (`${req.uid}`);
-    if (arg[`${level}`]['answer'].includes(req.body.answer)) {
+    if (arg[`${level}`]['answer'].includes (req.body.answer)) {
       var newLevel = level + 1;
       ref.get ().then (function (doc) {
         ref.update ({
@@ -176,7 +176,12 @@ exports.argLeaderboard = (req, res) => {
 };
 
 exports.ctf = (req, res) => {
-  res.render ('ctf',{ctf});
+  res.render ('ctf', {ctf});
+};
+
+exports.ctfChallenge = (req, res) => {
+  console.log(req.query);
+  res.render ('ctfChallenge', {challenge:req.query});
 };
 
 exports.ctfSubmit = (req, res) => {
@@ -204,7 +209,7 @@ var arg = {
   },
   '4': {
     question: 'This monumental organization is celebrating its Diamond Anniversary this year.<br><br>Just as Helena Ravenclaw said in Harry Potter and the Deathly Hallows, "If you have to ask, you’ll never know. If you know, you need only ask. ',
-    answer: ['IEEECS','IEEECOMPUTERSOCIETY','COMPUTERSOCIETY'],
+    answer: ['IEEECS', 'IEEECOMPUTERSOCIETY', 'COMPUTERSOCIETY'],
   },
   '5': {
     question: '<a href="https://youtu.be/Mz9Oe0W3XKo" target="_blank" rel="noopener noreferrer" >And off we go to the confusing world!</a>',

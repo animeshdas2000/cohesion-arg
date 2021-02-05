@@ -19,7 +19,8 @@
         <br><br>
 
         <% ctf.forEach(function(challenge,index){ %>
-          <a href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>">
+          <a
+            href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>">
             <div class="box-row">
               <div class="chall-box">
                 <p class="chall-text">

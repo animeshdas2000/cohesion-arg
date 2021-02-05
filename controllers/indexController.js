@@ -16,6 +16,7 @@ exports.index = function (req, res) {
           .update ({
             arglevel: 0,
             ctflevel: 0,
+            ctfdone: []
           })
           .then (function () {
             rtdb.ref ().child (req.uid).set ({
@@ -180,15 +181,55 @@ exports.ctf = (req, res) => {
 };
 
 exports.ctfChallenge = (req, res) => {
-  console.log(req.query);
-  res.render ('ctfChallenge', {challenge:req.query});
+  res.render ('ctfChallenge', {challenge: req.query});
 };
 
 exports.ctfSubmit = (req, res) => {
-  res.status (404).send ("Don't be oversmart :) ");
+  if (ctf[`${req.body.qid - 1}`]['flag'] == req.body.answer) {
+    rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
+      points = snapshot.val ().ctflevel;
+      var ref = firestore.collection ('users').doc (`${req.uid}`);
+      var points = points + ctf[`${req.body.qid}`]['points'];
+      ref.get ().then (function (doc) {
+        if (doc.data ().ctfdone.includes (req.body.qid))
+          res.send ({msg: 'You have already attempted this challenge :)'});
+        else {
+          ref.update ({
+            ctflevel: points,
+            ctfdone: admin.firestore.FieldValue.arrayUnion (req.body.qid),
+            ctftime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
+          });
+          rtdb.ref (`/${req.uid}`).update ({ctflevel: points});
+          res.status (200).send ({
+            msg: 'Correct Answer',
+          });
+        }
+      });
+    });
+  } else {
+    res.status (200).send ({
+      msg: 'Incorrect Answer',
+    });
+  }
 };
 
-exports.ctfLeaderboard = (req, res) => {};
+exports.ctfLeaderboard = (req, res) => {
+  firestore
+    .collection ('users')
+    .orderBy ('ctflevel', 'desc')
+    .select ('name', 'ctflevel')
+    .get ()
+    .then (function (querySnapshot) {
+      leaderboard = [];
+      querySnapshot.forEach (function (doc) {
+        leaderboard.push (doc.data ());
+      });
+      res.render ('ctfLeaderboard', {leaderboard});
+    })
+    .catch (function (error) {
+      console.log (error);
+    });
+};
 
 var arg = {
   '0': {
@@ -283,6 +324,7 @@ var ctf = [
     driveId: '1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
     flag: 'cohesion.ctf{D34df1sh_1s_4wes0m3}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 2,
@@ -293,6 +335,7 @@ var ctf = [
     driveId: '1kYKa3AtsnYP1iY8mA6md5T-E7veoJi3G',
     flag: 'cohesion.ctf{B4se_91_1s_Lub}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 3,
@@ -303,6 +346,7 @@ var ctf = [
     driveId: '1r-EPzzEoULucaE4Vrc0fGIL-ZzQIsmii',
     flag: 'cohesion.ctf{M4lb0g3_1s_c00l}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 4,
@@ -310,9 +354,10 @@ var ctf = [
     question: '',
     points: 100,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'cohesion.ctf{JacobSecurity1857}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 5,
@@ -323,6 +368,7 @@ var ctf = [
     driveId: '1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
     flag: 'cohesion.ctf{N1c3_K33p_Going_Buddy}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 6,
@@ -333,6 +379,7 @@ var ctf = [
     driveId: '1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
     flag: 'cohesion.ctf{r5a_1s_3a5y}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 7,
@@ -343,6 +390,7 @@ var ctf = [
     driveId: '10TR6PWfs4WvAgYT88yF6A_p1nKmFnXlc',
     flag: 'ieeencu.ctf{Y0u_4r3_l33t}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 8,
@@ -350,9 +398,10 @@ var ctf = [
     question: '',
     points: 100,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: '1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
     flag: 'cohesion.ctf{pigpenisfun}',
     category: 'Crypto',
+    containerURL: '',
   },
   {
     id: 9,
@@ -363,6 +412,7 @@ var ctf = [
     driveId: '14hFh4av_xPLiLkVHkkVCkIha-i8NCUAA',
     flag: 'cohesion.ctf{Montserrat}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 10,
@@ -370,9 +420,10 @@ var ctf = [
     question: 'Our intelligence has found about a hacker named Elliot Poulsen, he always speaks in hacker language and has recently posted some stuff on the internet about some hacks that have happened recently can you find out what he has leaked.',
     points: 150,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'ieeencu.ctf{b3st_h4cker_0f_4ll_7ime}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 11,
@@ -380,9 +431,10 @@ var ctf = [
     question: 'The author of the challenge is part of an organization, which has leaked some sensitive information on one of its social media account.',
     points: 100,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'cohesion.ctf{Ariana_Grande_Butera}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 12,
@@ -390,9 +442,10 @@ var ctf = [
     question: 'Can you tell me the IP address of a top netweaver product that is located in Germany.',
     points: 70,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'cohesion.ctf{188.95.7.114}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 13,
@@ -400,9 +453,10 @@ var ctf = [
     question: 'Show me what can you find with d0:31:69:90:a8:75 ?',
     points: 100,
     author: '!nVoK3r',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'cohesion.ctf{AndroidAP}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 14,
@@ -413,6 +467,7 @@ var ctf = [
     driveId: '18zUQ9F25TIDjZ6SUvweNmMCf41V1odM2',
     flag: 'cohesion.ctf{51.49,-0.08}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 15,
@@ -423,6 +478,7 @@ var ctf = [
     driveId: '1eWkUqHPOaRZFbwPWQUTNA2F-SSnyHnsi',
     flag: 'cohesion.ctf{03_06_2020_15}',
     category: 'OSINT',
+    containerURL: '',
   },
   {
     id: 16,
@@ -433,6 +489,7 @@ var ctf = [
     driveId: '1OysxhJYYBVUDVWnGYCAMkscTcCjvAG4T',
     flag: 'cohesion.ctf{Un1c0de_1s_l33t}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 17,
@@ -443,6 +500,7 @@ var ctf = [
     driveId: '1vqPJrAirg86Ev--UrOWbJSVO0w9Y3eyK',
     flag: 'cohesion.ctf{D1git4l_1nk_4lw4ys_w0rks}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 18,
@@ -450,9 +508,10 @@ var ctf = [
     question: 'Can you find the flag I think not',
     points: 200,
     author: '!nVoK3r',
-    driveId: '18aZnhQ6cnSqrY2Fguk9PLWuu4yvoIiF4',
+    driveId: '1W_iO69sYxXpxC5YlnCHcP-qh0KfNoMrv',
     flag: 'cohesion.ctf{P3rs1st3nce_1s_k3y}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 19,
@@ -463,6 +522,7 @@ var ctf = [
     driveId: '1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',
     flag: 'cohesion.ctf{DTMFTONESAREFUN}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 20,
@@ -473,6 +533,7 @@ var ctf = [
     driveId: '1sS83A_If7kA_kzlYfIWc-8NpUFBBzdtG',
     flag: 'cohesion.ctf{y0u_mu5t_d1g_d33p-ieee}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 21,
@@ -480,19 +541,21 @@ var ctf = [
     question: 'Join our discord server and find the flag.      https://discord.gg/TUf6B6ANw3',
     points: 20,
     author: 'mystog3n',
-    driveId: '',
+    driveId: 'NULL',
     flag: 'cohesion.ctf{TH4NK5-F0R-J01N1NG-D15C0RD}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 22,
-    title: '',
+    title: 'Lost in the Dimensions',
     question: '',
-    points: '',
+    points: 200,
     author: '',
-    driveId: '',
-    flag: '',
+    driveId: '1PbZuztzFMHYBrs2vOOl3JxqxyyyADsQ9',
+    flag: 'cohesion.ctf{H1DD3N_1N_D1M3N510N5}',
     category: 'Misc',
+    containerURL: '',
   },
   {
     id: 23,
@@ -500,9 +563,10 @@ var ctf = [
     question: "Let's see how good your basics are",
     points: 50,
     author: 'mystog3n',
-    driveId: '',
+    driveId: '12YEf_z4bH1FohpMc9VDkqA3HOrfga4zL',
     flag: 'IEENCU.CTF{R3V3R53_15_N0T_H4RD_0000}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 24,
@@ -510,9 +574,10 @@ var ctf = [
     question: "Let's see how good your basics are, part 2.",
     points: 100,
     author: 'mystog3n',
-    driveId: '',
+    driveId: '1NZU_ZFnNVMwlq05APODkUckPC6gR17B4',
     flag: 'IEEENCU.CTF{B451C-R3V3R53-3NG-4-FUN}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 25,
@@ -520,9 +585,10 @@ var ctf = [
     question: 'Andy got a file named andy and Andy wants to open andy. Help Andy by using any means opening andy.',
     points: 150,
     author: 'mystog3n',
-    driveId: '',
+    driveId: '1l_FEMYTZq0AOXWMYEf2strzHISPFcSkH',
     flag: 'IEEENCU.CTF{W0W_4NDR01D_H45_4PK!!}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 26,
@@ -530,9 +596,10 @@ var ctf = [
     question: '',
     points: 170,
     author: 'mystog3n',
-    driveId: '',
+    driveId: '1JgpzgxfjTbLynOkZqz3JsjoMdyDBWreS',
     flag: 'IEEENCU.CTF{TH3_FUN_0F_R3VERS1NG-PYTH0N}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 27,
@@ -540,9 +607,10 @@ var ctf = [
     question: '',
     points: 230,
     author: 'mystog3n',
-    driveId: '',
+    driveId: '16Se949ch9Ft8_J30HSfPYf-xeiSLh_QH',
     flag: 'IEEENCU.CTF{GR3PP1NG_TH3_FL4G_15_H4RD_4F}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 28,
@@ -553,6 +621,7 @@ var ctf = [
     driveId: '',
     flag: 'IEEENCU.CTF{FUNCT10N5-4R3NT-FUN-4ND-345Y}',
     category: 'Rev',
+    containerURL: '',
   },
   {
     id: 29,
@@ -563,6 +632,7 @@ var ctf = [
     driveId: '',
     flag: 'cohesion.ctf{W0RDPR355_H4CK1NG_U51NG_R0CKY0U}',
     category: 'Web',
+    containerURL: '',
   },
   {
     id: 30,
@@ -573,6 +643,7 @@ var ctf = [
     driveId: '',
     flag: 'cohesion.ctf{JwT_t0k3N_t0_Th3_w1n}',
     category: 'Web',
+    containerURL: '',
   },
   {
     id: 31,
@@ -583,6 +654,7 @@ var ctf = [
     driveId: '',
     flag: 'cohesion.ctf{1nj3ct10n-4tt4ck_15-b35t}',
     category: 'Web',
+    containerURL: '',
   },
   {
     id: 32,
@@ -593,6 +665,7 @@ var ctf = [
     driveId: '',
     flag: 'cohesion.ctf{Y0u_h4v3_G0T_m41l}',
     category: 'Web',
+    containerURL: '',
   },
   {
     id: 33,
@@ -603,5 +676,6 @@ var ctf = [
     driveId: '',
     flag: 'cohesion.ctf{git-c0mm1t1ng_t0_th3_c4u53}',
     category: 'Web',
+    containerURL: '',
   },
 ];

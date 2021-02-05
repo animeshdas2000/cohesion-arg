@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ARG | Cohesion</title>
-    <%- include('partials/style.ejs') %> <%-
-    include('partials/configureFirebase') %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="scripts/challenge.js"></script>
-  </head>
 
-  <body>
-    <%- include('partials/navbar.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARG | Cohesion</title>
+  <%- include('partials/style.ejs') %>
+    <%- include('partials/configureFirebase') %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="scripts/challenge.js"></script>
+</head>
+
+<body>
+  <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
         <h2 class="h1-white">CTF challenges</h2>
         <br /><br />
 
-        <% ctf.forEach(function(challenge,index){ %>
+        <% for(var i=0; i < ctf.length; i+=3) { %>
+          <div class="box-row">
+            <div class="chall-box">
+              <p class="chall-text">
+                <%= ctf[i].title %>
+              </p>
+              <p>
+                <%= ctf[i].points %> Points
+              </p>
+              <a type="button" class="ctf-link"
+                href="/ctf/challenge?title=<%= ctf[i].title %>&question=<%= ctf[i].question %>&points=<%= ctf[i].points %>&driveId=<%= ctf[i].driveId %>&category=<%= ctf[i].category %>&id=<%= ctf[i].id %>">
+                Solve</a>
+            </div>
+            <div class="chall-box">
+              <p class="chall-text">
+                <%= ctf[i+1].title %>
+              </p>
+              <p>
+                <%= ctf[i+1].points %> Points
+              </p>
+              <a type="button" class="ctf-link"
+                href="/ctf/challenge?title=<%= ctf[i+1].title %>&question=<%= ctf[i+1].question %>&points=<%= ctf[i+1].points %>&driveId=<%= ctf[i+1].driveId %>&category=<%= ctf[i+1].category %>&id=<%= ctf[i+1].id %>">
+                Solve</a>
+            </div>
+            <div class="chall-box">
+              <p class="chall-text">
+                <%= ctf[i+2].title %>
+              </p>
+              <p>
+                <%= ctf[i+2].points %> Points
+              </p>
+              <a type="button" class="ctf-link"
+                href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>&points=<%= ctf[i+2].points %>&driveId=<%= ctf[i+2].driveId %>&category=<%= ctf[i+2].category %>&id=<%= ctf[i+2].id %>">
+                Solve</a>
+            </div>
+          </div>
+          <% } %>
 
-        <div class="box-row">
-          <div class="chall-box">
-            <p class="chall-text"><%= challenge.title %></p>
-            <p><%= challenge.points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
-            >
-              Solve</a
-            >
-          </div>
-          <div class="chall-box">
-            <p class="chall-text"><%= challenge.title %></p>
-            <p><%= challenge.points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
-            >
-              Solve</a
-            >
-          </div>
-          <div class="chall-box">
-            <p class="chall-text"><%= challenge.title %></p>
-            <p><%= challenge.points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
-            >
-              Solve</a
-            >
-          </div>
-        </div>
 
-        <% }); %>
       </div>
     </main>
-  </body>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </html>

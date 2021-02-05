@@ -16,14 +16,27 @@
     <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
-        <h2 class="section-header">Level <span id="level"> Level </span></h2>
+        <h2 class="h1-white">CTF <span id="level"> Name </span></h2>
         <br /><br />
+
         <div class="c-box p-5">
-          <p class="question text-center pb-4" id="question">Question</p>
+          <p class="question text-center pb-2" id="question">Desc<br /></p>
+          <p class="question text-center">
+            <span style="font-size: 16px"
+              ><a
+                href=""
+                style="color: white; text-align: center; text-decoration: none"
+                ><i class="fa fa-download"></i>File</a
+              ></span
+            >
+          </p>
+          <p class="text-center">Author</p>
+          <p class="text-center">Points</p>
           <input
             class="challenge-input mx-auto d-block"
             id="answer"
             type="text"
+            placeholder="cohesion.ctf{}"
           />
           <br />
           <div id="answer_error" class="error text-center"></div>

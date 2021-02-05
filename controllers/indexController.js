@@ -231,7 +231,7 @@ var arg = {
     answer: 'PRONOTEPAD',
   },
   '11': {
-    question: '<a href="https://drive.google.com/file/d/1413jQ8hFPkDv3vs1LhYF_t1RxuG7dEOB/view?usp=sharing" target="_blank" rel="noopener noreferrer" >Too many questions, too left answers</a>',
+    question: '<a href="https://drive.google.com/file/d/1413jQ8hFPkDv3vs1LhYF_t1RxuG7dEOB/view?usp=sharing" target="_blank" rel="noopener noreferrer" >Too many questions, too few answers</a>',
     answer: 'INVERTEDCODE',
   },
   '12': {

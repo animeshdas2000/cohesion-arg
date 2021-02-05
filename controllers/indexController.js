@@ -176,7 +176,7 @@ exports.argLeaderboard = (req, res) => {
 };
 
 exports.ctf = (req, res) => {
-  res.render ('ctf', {detial: req.user});
+  res.render ('ctf',{ctf});
 };
 
 exports.ctfSubmit = (req, res) => {

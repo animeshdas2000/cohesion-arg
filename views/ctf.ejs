@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ARG | Cohesion</title>
-    <%- include('partials/style.ejs') %> <%-
-    include('partials/configureFirebase') %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="scripts/challenge.js"></script>
-  </head>
 
-  <body>
-    <%- include('partials/navbar.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARG | Cohesion</title>
+  <%- include('partials/style.ejs') %>
+    <%- include('partials/configureFirebase') %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="scripts/challenge.js"></script>
+</head>
+
+<body>
+  <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
         <h2 class="h1-white">CTF challenges</h2>
-        <div class="box-row">
-          <div class="chall-box">
-            <p class="chall-text">
-              Name: Warm-Up <br />
-              Find the Fish -30 <br />
-              Author: !nVoK3r <br />
-              Flag Format- Flag{}
-            </p>
-          </div>
-        </div>
+        <br><br>
+
+        <% ctf.forEach(function(challenge,index){ %>
+          <a href="/ctf/challenge?">
+            <div class="box-row">
+              <div class="chall-box">
+                <p class="chall-text">
+                  <%= challenge.title %><br><br>
+                    <%= challenge.points %> Points
+                </p>
+              </div>
+            </div>
+          </a>
+          <% }); %>
       </div>
     </main>
-  </body>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </html>

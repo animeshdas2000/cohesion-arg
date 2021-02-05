@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | Cohesion</title>
-  <%- include('partials/style.ejs') %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Cohesion</title>
+    <%- include('partials/style.ejs') %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <%- include('partials/favicon') %>
-      <%- include('partials/configureFirebase') %>
-        <script src="scripts/indexedDB.js"></script>
-        <script src="scripts/login.js"></script>
-</head>
+    <%- include('partials/favicon') %> <%- include('partials/configureFirebase')
+    %>
+    <script src="scripts/indexedDB.js"></script>
+    <script src="scripts/login.js"></script>
+  </head>
 
-<body>
-  <%- include('partials/navbar') %>
+  <body>
+    <%- include('partials/navbar') %>
     <main>
       <div class="container">
         <h1 class="section-header">Login</h1>
-        <br><br>
-        <div class="container login-box">
-          <input class="auth-input mx-auto d-block" type="email" placeholder="Email" id="email" />
-          <div id="email_error" class="error text-center"></div>
+        <br /><br />
+        <div class="container">
+          <div class="login-box">
+            <input
+              class="auth-input mx-auto d-block"
+              type="email"
+              placeholder="Email"
+              id="email"
+            />
+            <div id="email_error" class="error text-center"></div>
 
-          <input class="auth-input mx-auto d-block" type="password" placeholder="Password" id="password" />
-          <div id="password_error" class="error text-center"></div>
-          <br />
-          <div class="auth-btns">
-            <button class="auth-btn" id="login">Login</button>
-            <br>
-            <a id="forgotPass" href="#" style="color: #1b1b1b; text-decoration: none">Forgot
-              Password?</a>
+            <input
+              class="auth-input mx-auto d-block"
+              type="password"
+              placeholder="Password"
+              id="password"
+            />
+            <div id="password_error" class="error text-center"></div>
+            <br />
+            <div class="auth-btns">
+              <button class="auth-btn" id="login">Login</button>
+              <br />
+              <a
+                id="forgotPass"
+                href="#"
+                style="color: #1b1b1b; text-decoration: none"
+                >Forgot Password?</a
+              >
+            </div>
+            <br />
+            <div class="error text-center" id="msg"></div>
           </div>
-          <br>
-          <div class="error text-center" id="msg"></div>
         </div>
       </div>
     </main>
     <div style="height: 100px"></div>
 
-    <div class="modal fade" id="resetPass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-      aria-hidden="true">
+    <div
+      class="modal fade"
+      id="resetPass"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #1b1b1b">
           <div class="modal-header text-center">
@@ -48,17 +69,26 @@
           </div>
           <div class="modal-body mt-2">
             <div>
-              <input type="email" id="resetEmail" placeholder="Enter email address" class="form-control validate">
+              <input
+                type="email"
+                id="resetEmail"
+                placeholder="Enter email address"
+                class="form-control validate"
+              />
               <p id="reset-error" class="error pt-3 text-center"></p>
             </div>
             <div class="d-flex justify-content-center">
-              <button class="auth-btn waves-effect" id="#reset" onclick="resetPassword()">Reset</button>
+              <button
+                class="auth-btn waves-effect"
+                id="#reset"
+                onclick="resetPassword()"
+              >
+                Reset
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-</body>
-
+  </body>
 </html>

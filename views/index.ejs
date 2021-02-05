@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cohesion | ARG-CTF</title>
-  <%- include('partials/style.ejs') %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cohesion | ARG-CTF</title>
+    <%- include('partials/style.ejs') %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts/index.js"></script>
     <%- include('partials/configureFirebase') %>
-</head>
+  </head>
 
-<body style="color: white">
-  <%- include('partials/navbar.ejs') %>
-  <main class="container">
-    <h1 class="section-header">Game begins in </h1>
-    <br>
-    <div class="container" id="clockdiv">
-      <div>
-        <span class="days"></span>
-        <div class="smalltext">Days</div>
+  <body style="color: white">
+    <%- include('partials/navbar.ejs') %>
+    <main class="container">
+      <h1 class="h1-white">Game begins in</h1>
+      <br />
+      <div class="container" id="clockdiv">
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Days</div>
+        </div>
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Hours</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
       </div>
-      <div>
-        <span class="hours"></span>
-        <div class="smalltext">Hours</div>
+      <br /><br />
+      <br /><br />
+      <div class="container text-center">
+        <button class="auth-btn" id="arg">ARG</button>
+        <button class="auth-btn" id="ctf">CTF</button>
       </div>
-      <div>
-        <span class="minutes"></span>
-        <div class="smalltext">Minutes</div>
-      </div>
-      <div>
-        <span class="seconds"></span>
-        <div class="smalltext">Seconds</div>
-      </div>
-    </div>
-    <br><br>
-    <br><br>
-    <div class="container text-center">
-      <button class="auth-btn" id="arg">ARG</button>
-      <button class="auth-btn" id="ctf">CTF</button>
-    </div>
-  </main>
-</body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+    </main>
+  </body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </html>

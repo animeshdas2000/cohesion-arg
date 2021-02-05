@@ -25,5 +25,6 @@ router.post ('/ctf/submit', auth, index_controller.ctfSubmit);
 router.get ('/ctf/leaderboard', auth, index_controller.ctfLeaderboard);
 
 router.get ('/login', index_controller.login);
+router.get('/arg/crossword',auth,)
 
 module.exports = router;

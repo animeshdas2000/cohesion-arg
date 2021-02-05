@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #1b1b1b;
 }
 
@@ -18,7 +18,12 @@ h5 {
   color: white;
   font-size: 1.5rem;
 }
-
+.h1-white {
+  color: #f4f4f4;
+  font-size: 6rem;
+  font-weight: 700;
+  text-align: center;
+}
 .navbar-dark .navbar-nav .nav-link:hover {
   border-bottom: 2px solid aqua !important ;
 }
@@ -35,6 +40,7 @@ h5 {
 }
 .login-box {
   padding: 30px;
+  margin: 0 20%;
   border-radius: 15px;
   background-color: #e9e7e7;
 }
@@ -69,7 +75,7 @@ h5 {
   font-weight: 600;
 }
 .section-header {
-  font-family: 'Monteserrat', sans-serif;
+  font-family: "Monteserrat", sans-serif;
   font-size: 6rem;
   margin-bottom: 10px;
   -webkit-text-stroke: 3px aqua;
@@ -97,7 +103,37 @@ input::-webkit-inner-spin-button {
   margin: 10px;
   text-align: center;
 }
+.level-r,
+.level-b,
+.level-g {
+  font-size: 2rem;
+}
+.level-g {
+  color: #388e3c;
+}
+.level-r {
+  color: #d32f2f;
+}
+.level-b {
+  color: #1976d2;
+}
+.box-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.chall-text {
+  padding: 0 20px;
+}
+.chall-box {
+  display: flex;
 
+  font-size: 1.2rem;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+  background-color: #111511;
+}
 #clockdiv {
   font-family: sans-serif;
   color: #fff;
@@ -110,7 +146,7 @@ input::-webkit-inner-spin-button {
 #clockdiv > div {
   padding: 10px;
   border-radius: 3px;
-  background: aqua;
+  background: rgb(53, 52, 52);
   display: inline-block;
 }
 
@@ -122,15 +158,12 @@ input::-webkit-inner-spin-button {
 }
 
 .smalltext {
-  color: #1b1b1b;
+  color: white;
   padding-top: 5px;
   font-size: 16px;
 }
 
 @media screen and (max-width: 840px) {
-  .container {
-    margin: 30px;
-  }
   .section-header {
     font-size: 5rem;
     margin: 20px 20%;
@@ -141,6 +174,10 @@ input::-webkit-inner-spin-button {
   h5 {
     width: max-content;
   }
+  .login-box {
+    margin: 0;
+  }
+
   /* Hamburger Animation */
   #pencet {
     display: flex;
@@ -178,9 +215,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
-.lb-table {
+.table {
   color: white;
-  margin: 0 35%;
+  font-weight: 900;
   border-collapse: separate;
   border-spacing: 10px;
 }
@@ -232,7 +269,7 @@ tbody {
   border-radius: 8px;
   height: 60px;
   font-size: 18pt;
-  text-transform:uppercase;
+  text-transform: uppercase;
   border: none;
   color: aqua;
   background-color: #1b1b1b;

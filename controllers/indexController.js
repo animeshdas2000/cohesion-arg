@@ -281,11 +281,11 @@ var arg = {
     answer: 'INVERTEDCODE',
   },
   '12': {
-    question: '<a href="https://pastebin.com/kmctjE2C" target="_blank" rel="noopener noreferrer" >The final countdown</a>',
+    question: '<a href="https://docs.google.com/document/d/1JQxV2o3MUrgEf__UMh892QVTpm3ighmO4KsKl-PibLc/edit?usp=sharing" target="_blank" rel="noopener noreferrer" >The final countdown</a>',
     answer: 'TOOMANYCONVERSIONS',
   },
   '13': {
-    question: '<a href="https://pastebin.com/RaqanVAn" target="_blank" rel="noopener noreferrer" >I really hope someone makes it this far</a>',
+    question: '<a href="https://docs.google.com/document/d/1TMs2uJhJa_18-lqxNzKQ2cwcvqeVqMLGUeVOc3Oos6k/edit?usp=sharing" target="_blank" rel="noopener noreferrer" >I really hope someone makes it this far</a>',
     answer: 'SCANNYBOI',
   },
   '14': {

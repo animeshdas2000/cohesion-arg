@@ -1,39 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARG | Cohesion</title>
+    <%- include('partials/style.ejs') %> <%-
+    include('partials/configureFirebase') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/challenge.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARG | Cohesion</title>
-  <%- include('partials/style.ejs') %>
-    <%- include('partials/configureFirebase') %>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="scripts/challenge.js"></script>
-</head>
-
-<body>
-  <%- include('partials/navbar.ejs') %>
+  <body>
+    <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
         <h2 class="h1-white">CTF challenges</h2>
-        <br><br>
+        <br /><br />
 
         <% ctf.forEach(function(challenge,index){ %>
-          <a
-            href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>">
-            <div class="box-row">
-              <div class="chall-box">
-                <p class="chall-text">
-                  <%= challenge.title %><br><br>
-                    <%= challenge.points %> Points
-                </p>
-              </div>
-            </div>
-          </a>
-          <% }); %>
+
+        <div class="box-row">
+          <div class="chall-box">
+            <p class="chall-text"><%= challenge.title %></p>
+            <p><%= challenge.points %> Points</p>
+            <a
+              type="button"
+              class="ctf-link"
+              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
+            >
+              Solve</a
+            >
+          </div>
+          <div class="chall-box">
+            <p class="chall-text"><%= challenge.title %></p>
+            <p><%= challenge.points %> Points</p>
+            <a
+              type="button"
+              class="ctf-link"
+              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
+            >
+              Solve</a
+            >
+          </div>
+          <div class="chall-box">
+            <p class="chall-text"><%= challenge.title %></p>
+            <p><%= challenge.points %> Points</p>
+            <a
+              type="button"
+              class="ctf-link"
+              href="/ctf/challenge?title=<%= challenge.title %>&question=<%= challenge.question %>&points=<%= challenge.points %>&driveId=<%= challenge.driveId %>&category=<%= challenge.category %>&id=<%= challenge.id %>"
+            >
+              Solve</a
+            >
+          </div>
+        </div>
+
+        <% }); %>
       </div>
     </main>
-</body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+  </body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </html>

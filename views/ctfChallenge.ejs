@@ -22,17 +22,21 @@
         <br /><br />
 
         <div class="c-box p-5">
+          <p style="color: white;text-align: right;"><%= challenge.points %> Points </p> 
+          <p style="color: white;text-align: right;"> Category: <%= challenge.category %> </p> 
+          
           <p class="question text-center pb-2" id="question">
             <%= challenge.question %><br />
           </p>
-          <p class="question text-center">
-            <span style="font-size: 16px"><a
-                href="https://drive.google.com/uc?export=download&id=<%= challenge.driveId %>"
-                style="color: white; text-align: center; text-decoration: none"><i
-                  class="fa fa-download"></i>File</a></span>
-          </p>
+       
+    
+     
           <p class="text-center">
-            <%= challenge.points %> Points || Category: <%= challenge.category %>
+            <span style="font-size: 16pt"><a
+              href="https://drive.google.com/uc?export=download&id=<%= challenge.driveId %>"
+              style="color: white; text-align: center; text-decoration: none"><i
+                class="fa fa-download"></i>File</a></span>
+           
           </p>
           <input class="challenge-input mx-auto d-block" id="answer" type="text" placeholder="cohesion.ctf{}" />
           <br />

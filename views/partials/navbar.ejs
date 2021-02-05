@@ -44,12 +44,7 @@
 </div>
 <script>
   function logout() {
-    firebase.auth().signOut()
-      .then(function () {
-        document.cookie = 'uid=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        window.location.replace('/login');
-      }).catch(function (error) {
-        console.log("Error......");
-      });
+    document.cookie = 'uid=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.replace('/login');
   }
 </script>

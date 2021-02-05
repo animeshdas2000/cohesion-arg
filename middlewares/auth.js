@@ -14,7 +14,9 @@ module.exports = async function (req, res, next) {
         next ();
       })
       .catch (error => {
-        res.redirect ('/login');
+        res
+          .cookie ('uid', '', {expires: new Date (Date.now ())})
+          .redirect ('/login');
       });
   }
 };

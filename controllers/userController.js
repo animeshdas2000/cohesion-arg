@@ -25,7 +25,17 @@ exports.signup = async function (req, res) {
     });
 };
 
-exports.update = function (req, res) {};
+exports.login = function (req, res) {
+  firebase
+    .auth ()
+    .signInWithEmailAndPassword (req.body.email, req.body.password)
+    .then (function (response) {
+      res.cookie ('uid', response.user.uid).send ({msg: 'Login Successful!'});
+    })
+    .catch (function (error) {
+      res.status(401).send ({msg: error.toString()});
+    });
+};
 
 function sendEmail (name, email) {
   let transporter = nodemailer.createTransport ({

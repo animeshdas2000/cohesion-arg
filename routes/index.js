@@ -11,9 +11,7 @@ router.get ('/register/success', function (req, res, next) {
   res.render ('registrationsuccess');
 });
 
-router.get('/ctf/challenge',auth,(req,res)=>{
-  res.render('ctfChallenge.ejs');
-});
+router.get('/ctf/challenge',auth,index_controller.ctfChallenge);
 router.get ('/arg', auth, index_controller.arg);
 router.get ('/arg/false', auth, index_controller.argfalse);
 router.get ('/arg/true', auth, index_controller.argtrue);

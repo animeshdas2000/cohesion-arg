@@ -120,20 +120,40 @@ input::-webkit-inner-spin-button {
 .box-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+}
+.box-row:nth-child(even) {
+}
+.ctf-link {
+  text-decoration: none;
+  color: white;
+  background-color: #006eff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+.ctf-link:hover {
+  color: white;
+  background-color: #013f91;
+  filter: drop-shadow(5px 10px 20px black);
+  transition: ease-in-out 700ms;
 }
 .chall-text {
   padding: 0 20px;
 }
 .chall-box {
   display: flex;
-
+  flex-direction: column;
   font-size: 1.2rem;
+  align-items: center;
   color: white;
   padding: 40px 20px;
   border-radius: 10px;
   background-color: #111511;
+  margin: 20px;
 }
+
 #clockdiv {
   font-family: sans-serif;
   color: #fff;
@@ -161,6 +181,11 @@ input::-webkit-inner-spin-button {
   color: white;
   padding-top: 5px;
   font-size: 16px;
+}
+.table-light > tr > th,
+.table-dark > th,
+.table-dark > td {
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 840px) {
@@ -214,12 +239,27 @@ input::-webkit-inner-spin-button {
     transform: rotate(-45deg) translate(1px, 0);
   }
 }
+.game-mode {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
+.select-game {
+  background-color: #111511;
+  color: white;
+  cursor: pointer;
+  padding: 40px;
+  border-radius: 10px;
+}
+.select-game > p {
+  font-size: 2rem;
+}
 .table {
   color: white;
   font-weight: 900;
   border-collapse: separate;
-  border-spacing: 10px;
+  border-spacing: 10px 5px;
 }
 
 .lb-th {
@@ -268,6 +308,7 @@ tbody {
   padding: 10px 20px;
   border-radius: 8px;
   height: 60px;
+  width: 500px;
   font-size: 18pt;
   text-transform: uppercase;
   border: none;

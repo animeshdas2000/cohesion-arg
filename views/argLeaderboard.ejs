@@ -32,7 +32,11 @@
               <%= player.name %>
             </td>
             <td>
-              <%= player.arglevel %>
+              <% if(player.arglevel==19){ %>
+                Completed!
+                <% } else{ %>
+                  <%= player.arglevel %>
+                    <% } %>
             </td>
           </tr>
           <% }); %>

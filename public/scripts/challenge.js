@@ -8,8 +8,10 @@ function submitARGAnswer () {
       answer: $ ('#answer').val ().toUpperCase(),
     }),
     success: function (data) {
-      $ ('#level').text (data.level);
-      $ ('#question').text (data.question);
+      location.reload();
+      // if (data.level == 19) location.reload();
+      // $ ('#level').text (data.level);
+      // $ ('#question').text (data.question);
       toastr.options = {
         newestOnTop: true,
         positionClass: 'toast-bottom-center',

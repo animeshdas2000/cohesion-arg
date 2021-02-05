@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARG | Cohesion
+    </title>
+    <%- include('partials/style.ejs') %>
+        <%- include('partials/configureFirebase') %>
+            <link rel="stylesheet" href="/stylesheets/toastr.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            <script src="/scripts/challenge.js"></script>
+</head>
+
+<body>
+    <%- include('partials/navbar.ejs') %>
+        <main>
+            <div class="container">
+                <h2 class="section-header">Level <span id="level">
+                        <%= level %>
+                    </span>
+                </h2>
+                <br><br>
+                <div class="c-box p-5">
+                    <p class="question text-center pb-4" id="question">
+                        <%- question %>
+                    </p>
+
+                    <input class="challenge-input mx-auto d-block" id="answer" type="text" />
+                    <br>
+                    <div id="answer_error" class="error text-center"></div>
+                    <br>
+                    <button class="auth-btn mx-auto d-block" id="submitARG">Submit</button>
+                    <br>
+                    <div id="msg" class="error text-center"></div>
+                </div>
+            </div>
+        </main>
+        <iframe src="/donotopen.wav" type="audio/wav" allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio autoplay loop="true">
+            <source src="/donotopen.wav" type="audio/wav">
+        </audio>
+
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</html>

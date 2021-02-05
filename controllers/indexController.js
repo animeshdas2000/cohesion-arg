@@ -88,7 +88,7 @@ exports.argSubmit = function (req, res) {
   rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
     level = snapshot.val ().arglevel;
     var ref = firestore.collection ('users').doc (`${req.uid}`);
-    if (arg[`${level}`]['answer'] == req.body.answer) {
+    if (arg[`${level}`]['answer'] == req.body.answer || 'IEEECS' == req.body.answer) {
       var newLevel = level + 1;
       ref.get ().then (function (doc) {
         ref.update ({

@@ -134,12 +134,12 @@ exports.ctfLeaderboard = (req, res) => {};
 
 var arg = {
   '0': {
-    question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper tortor vel tortor aliquam, non congue leo blandit.',
-    answer: 'ABCD',
+    question: ' I am the giant that dominates the world and daily lives of people. Kids in the kindergarten know about me. My name got changed because some old dude that helps everyone on the web messed up his and my identity. Not his fault though, cause it’s you people that mess up. I am the dream and I have the cream. Don’t need to tell that old dude’s name because you see him everyday like it’s your shrine, let’s see if you can name mine.',
+    answer: 'Alphabet',
   },
   '1': {
-    question: 'Aenean malesuada risus at risus molestie, sed volutpat odio vulputate. Proin blandit ex eget feugiat commodo.',
-    answer: 'EFGH',
+    question: 'Hey there, probably like most of you I am single and I take up the central access memory in your PCs. You can call me an old Lady cause I got the lady parts and I indeed am old. My new counterpart is dimm-witted as per me but nowadays people use it to boost their pc performance',
+    answer: 'SIMM',
   },
   '2': {
     question: 'Sed libero mi, auctor non egestas nec, sagittis nec ex. Suspendisse quis nisl at velit finibus dapibus sed eu nisi.',
@@ -150,11 +150,22 @@ var arg = {
     answer: 'MNOP',
   },
   '4': {
-    question: 'Aenean malesuada risus at risus molestie, sed volutpat odio vulputate. Proin blandit ex eget feugiat commodo.',
-    answer: 'QRST',
+    question: 'https://www.fyrebox.com/play/jfra-grnv_pNq3enjVN',
+    answer: 'QuizGrandChamp',
   },
   '5': {
-    question: 'Sed libero mi, auctor non egestas nec, sagittis nec ex. Suspendisse quis nisl at velit finibus dapibus sed eu nisi.',
-    answer: 'UVWX',
+    question: 'This monumental organization is celebrating its Diamond Anniversary this year. Just as Helena Ravenclaw said in Harry Potter and the Deathly Hallows,\"If you have to ask, you’ll never know. If you know, you need only ask.\"',
+    answer: 'IEEE CS Society',
   },
+  '6':{
+    question:' https://youtu.be/Mz9Oe0W3XKo',
+    answer:'NoRedHerrings',
+  },
+  '7':{
+    question:'https://drive.google.com/file/d/1p3oTNKU3snvdddSM0hg-fBW3IZ8FBPXT/view?usp=sharing',
+    answer:'Poggers',
+  },
+  '8':{
+    question:'Red Herring Text:'
+  }
 };

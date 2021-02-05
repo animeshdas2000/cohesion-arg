@@ -204,7 +204,7 @@ var arg = {
   },
   '4': {
     question: 'This monumental organization is celebrating its Diamond Anniversary this year.<br><br>Just as Helena Ravenclaw said in Harry Potter and the Deathly Hallows, "If you have to ask, you’ll never know. If you know, you need only ask. ',
-    answer: 'IEEE CS',
+    answer: 'IEEECOMPUTERSOCIETY',
   },
   '5': {
     question: '<a href="https://youtu.be/Mz9Oe0W3XKo" target="_blank" rel="noopener noreferrer" >And off we go to the confusing world!</a>',
@@ -259,7 +259,7 @@ var arg = {
     answer: 'NICELYDONE',
   },
   '18': {
-    question: 'A man captivated by wiles was only captivated for a time, whereas a man won by simplicity would be won forever - if he, himself, were worth the winning.<br><br>92,1,6;<br>57,4,3;<br>170,17,28;<br>49,7,7;<br>365;15,8;<br>308,2,12;<br>444,20,5;<br>253,23,1;,<br>254,23,1',
+    question: '"A man captivated by wiles was only captivated for a time, whereas a man won by simplicity would be won forever - if he, himself, were worth the winning."<br><br>92,1,6;<br>57,4,3;<br>170,17,28;<br>49,7,7;<br>365;15,8;<br>308,2,12;<br>444,20,5;<br>253,23,1;<br>254,23,1',
     answer: 'NERDINESS',
   },
   '19': {

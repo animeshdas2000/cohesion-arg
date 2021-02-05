@@ -4,47 +4,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARG | Cohesion</title>
+  <title>ARG | Cohesion
+    <% if(level==7){ %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://pastebin.com/2kka3hqQ
+      <% } else{ %>
+        <% } %>
+  </title>
   <%- include('partials/style.ejs') %>
     <%- include('partials/configureFirebase') %>
       <link rel="stylesheet" href="/stylesheets/toastr.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-      <script src="scripts/challenge.js"></script>
+      <script src="/scripts/challenge.js"></script>
 </head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ARG | Cohesion
-  <% if(level==7){ %>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://pastebin.com/2kka3hqQ
-    <% } else{ %>
-      <% } %>
-</title>
-<%- include('partials/style.ejs') %>
-  <%- include('partials/configureFirebase') %>
-    <link rel="stylesheet" href="/stylesheets/toastr.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="scripts/challenge.js"></script>
-    </head>
-
-    <body>
-      <%- include('partials/navbar.ejs') %>
-        <main>
-          <% if(level!=19){ %>
-            <div class="container">
-              <h2 class="section-header">Level <span id="level">
-                  <%= level %>
-                </span>
-              </h2>
-              <br><br>
-              <div class="c-box p-5">
-                <p class="question text-center pb-4" id="question">
-                  <%- question %>
-                </p>
-                <% if(level==4){ %>
-                  <pre>
+<body>
+  <%- include('partials/navbar.ejs') %>
+    <main>
+      <% if(level!=19){ %>
+        <div class="container">
+          <h2 class="section-header">Level <span id="level">
+              <%= level %>
+            </span>
+          </h2>
+          <br><br>
+          <div class="c-box p-5">
+            <p class="question text-center pb-4" id="question">
+              <%- question %>
+            </p>
+            <% if(level==4){ %>
+              <pre class="text-center pb-4 text-white">
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,39 +88,40 @@
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 
                             </pre>
-                  <% } else{ %>
-                    <% } %>
+              <% } else{ %>
+                <% } %>
 
-                      <input class="challenge-input mx-auto d-block" id="answer" type="text" />
-                      <br>
-                      <div id="answer_error" class="error text-center"></div>
-                      <br>
-                      <button class="auth-btn mx-auto d-block" id="submitARG">Submit</button>
-                      <br>
-                      <div id="msg" class="error text-center"></div>
-                      <% if(level==8){ %>
-                        <a href="https://pastebin.com/bcmkeSGb"
-                          style="color: transparent;">https://pastebin.com/bcmkeSGb</a>
-                        <% } else{ %>
-                          <% } %>
-              </div>
-            </div>
-            </div>
-            <% } else{ %>
-              <div class="container">
-                <h2 class="section-header"><span id="level">
-                    <%= question %>
-                  </span>
-                </h2>
-                <p class="question text-center pb-4" id="question">
-                  You have successfully completed the ARG.
-                </p>
-              </div>
-              <% } %>
-        </main>
-        <% if(level==8){ %>
-          <p style="color: #171717;">Key: UWU</p>
-          <% } else{ %>
-            <% } %>
-    </body>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+                  <input class="challenge-input mx-auto d-block" id="answer" type="text"
+                    onkeypress="return event.charCode != 32" />
+                  <br>
+                  <div id="answer_error" class="error text-center"></div>
+                  <br>
+                  <button class="auth-btn mx-auto d-block" id="submitARG">Submit</button>
+                  <br>
+                  <div id="msg" class="error text-center"></div>
+                  <% if(level==8){ %>
+                    <a href="https://pastebin.com/bcmkeSGb"
+                      style="color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <% } else{ %>
+                      <% } %>
+          </div>
+        </div>
+        </div>
+        <% } else{ %>
+          <div class="container">
+            <h2 class="section-header"><span id="level">
+                <%= question %>
+              </span>
+            </h2>
+            <p class="question text-center pb-4" id="question">
+              You have successfully completed the ARG.
+            </p>
+          </div>
+          <% } %>
+    </main>
+    <% if(level==8){ %>
+      <p style="color: #171717;">Key: UWU</p>
+      <% } else{ %>
+        <% } %>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

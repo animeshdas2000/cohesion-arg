@@ -13,7 +13,6 @@ function login () {
 }
 
 function resetPassword () {
-  console.log ('Clicked....');
   if (isEmail ($ ('#resetEmail').val ())) {
     firebase
       .auth ()

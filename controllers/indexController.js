@@ -360,17 +360,10 @@ var ctf = [
     question: 'Recently the author got a message from his buddy but he thinks this is an encoded message can you decode it for him?',
     points: 100,
     author: '!nVoK3r',
-<<<<<<< HEAD
-    resource: null,
-    flag: 'cohesion.ctf{JacobSecurity1857}',
-    category: 'Crypto',
-    format:'cohesion.ctf{}'
-=======
     resource: 'https://drive.google.com/uc?export=download%26id=1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',
     flag: 'cohesion.ctf{DTMFTONESAREFUN}',
     pholder:'cohesion.ctf{}',
     category: 'Misc',
->>>>>>> 1dea061bca4247f1c1822a9addeaf2f0d50bc94e
   },
   {
     id: 5,

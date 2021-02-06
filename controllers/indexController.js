@@ -544,7 +544,7 @@ var ctf = [
     points: 20,
     author: 'mystog3n',
     resource: null,
-    flag: 'cohesion.ctf{TH4NK5-F0R-J01N1NG-D15C0RD}',
+    flag: 'cohesion.ctf{TH4NK5F0RJ01N1NGD15C0RD}',
     category: 'Misc',
     pholder:'cohesion.ctf{}',
     format:'cohesion.ctf{}',

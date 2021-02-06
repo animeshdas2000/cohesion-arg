@@ -9,10 +9,13 @@ const firebase = require ('firebase');
 const admin = require ('firebase-admin');
 const config = require ('./config');
 firebase.initializeApp (config.firebaseConfigDev);
+// firebase.initializeApp (config.firebaseConfigProd);
 var serviceAccount = require ('./cohesion-c4eed-firebase-adminsdk-zb8ao-bd34d4ddad.json');
+// var serviceAccount = require ('./cohesion-production-firebase-adminsdk-htjby-cb97425855.json');
 admin.initializeApp ({
   credential: admin.credential.cert (serviceAccount),
   databaseURL: 'https://cohesion-c4eed-default-rtdb.firebaseio.com',
+  // databaseURL: 'https://cohesion-production-default-rtdb.firebaseio.com',
 });
 
 var indexRouter = require ('./routes/index');

@@ -240,11 +240,11 @@ var arg = {
     answer: 'ALPHABET',
   },
   '2': {
-    question: 'Hey there, probably like most of you I am single and I take up the central access memory in your PCs.  <br>  You can call me an old Lady cause I got the lady parts and I indeed am old. <br> My new counterpart is dimm-witted as per me but nowadays people use it to boost their pc performance.',
+    question: 'Hey there, probably like most of you I am single and I take up the central access memory in your PCs.  <br>  You can call me an old Lady cause I got the lady parts and I indeed am old. <br> My new counterpart is dimm-witted as per me but nowadays people use it to boost their pc performance. <br> <br> Abbreviation accepted.',
     answer: 'SIMM',
   },
   '1': {
-    question: 'Q1: Which cipher which rely on sophisticated gearing mechanism.<br><br>Q2: What is the most widely used encryption technique of modern times.',
+    question: 'Q1: Which cipher which rely on sophisticated gearing mechanism.<br><br>Q2: What is the most widely used encryption technique of modern times. <br><br> Give combined answer. ',
     answer: 'ENIGMARIJNDAEL',
   },
   '3': {

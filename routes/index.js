@@ -1,7 +1,7 @@
 var express = require ('express');
 var router = express.Router ();
 const auth = require ('../middlewares/auth');
-const prodAuth = require ('../middlewares/prodAuth');
+// const prodAuth = require ('../middlewares/prodAuth');
 const index_controller = require ('../controllers/indexController');
 
 router.get ('/', auth, index_controller.index);

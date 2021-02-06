@@ -14,7 +14,7 @@
   <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
-        <h2 class="h1-white">CTF challenges</h2>
+        <h2 class="h1-white">CTF Challenges</h2>
         <br /><br />
 
         <% for(var i=0; i < ctf.length; i+=3) { %>
@@ -27,7 +27,9 @@
                 <%= ctf[i].points %> Points
               </p>
               <a type="button" class="ctf-link"
-                href="/ctf/challenge?title=<%= ctf[i].title %>&question=<%= ctf[i].question %>&points=<%= ctf[i].points %>&driveId=<%= ctf[i].driveId %>&category=<%= ctf[i].category %>&id=<%= ctf[i].id %>">
+                href="/ctf/challenge?title=<%= ctf[i].title %>&question=<%= ctf[i].question %>
+                &points=<%= ctf[i].points %>&resource=<%= ctf[i].resource %>&category=<%= ctf[i].category %>
+                &id=<%= ctf[i].id %>">
                 Solve</a>
             </div>
             <div class="chall-box">
@@ -38,7 +40,9 @@
                 <%= ctf[i+1].points %> Points
               </p>
               <a type="button" class="ctf-link"
-                href="/ctf/challenge?title=<%= ctf[i+1].title %>&question=<%= ctf[i+1].question %>&points=<%= ctf[i+1].points %>&driveId=<%= ctf[i+1].driveId %>&category=<%= ctf[i+1].category %>&id=<%= ctf[i+1].id %>">
+                href="/ctf/challenge?title=<%= ctf[i+1].title %>&question=<%= ctf[i+1].question %>
+                &points=<%= ctf[i+1].points %>&resource=<%= ctf[i+1].resource %>&category=<%= ctf[i+1].category %>
+                &qid=<%= ctf[i+1].id %>">
                 Solve</a>
             </div>
             <div class="chall-box">
@@ -49,7 +53,9 @@
                 <%= ctf[i+2].points %> Points
               </p>
               <a type="button" class="ctf-link"
-                href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>&points=<%= ctf[i+2].points %>&driveId=<%= ctf[i+2].driveId %>&category=<%= ctf[i+2].category %>&id=<%= ctf[i+2].id %>">
+                href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>
+                &points=<%= ctf[i+2].points %>&resource=<%= ctf[i+2].resource %>&category=<%= ctf[i+2].category %>
+                &qid=<%= ctf[i+2].id %>">
                 Solve</a>
             </div>
           </div>

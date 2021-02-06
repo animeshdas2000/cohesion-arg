@@ -244,7 +244,7 @@ var arg = {
     answer: 'SIMM',
   },
   '1': {
-    question: 'Q1: Which cipher which rely on sophisticated gearing mechanism.<br><br>Q2: What is the most widely used encryption technique of modern times. <br><br> Give combined answer. ',
+    question: 'Q1: Which cipher rely on sophisticated gearing mechanism.<br><br>Q2: What is the most widely used encryption technique of modern times. <br><br> Give combined answer. ',
     answer: 'ENIGMARIJNDAEL',
   },
   '3': {

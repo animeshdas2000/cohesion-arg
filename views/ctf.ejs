@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARG | Cohesion</title>
+  <title>CTF | Cohesion</title>
   <%- include('partials/style.ejs') %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts/challenge.js"></script>
@@ -43,18 +43,29 @@
                 &qid=<%= ctf[i+1].id %>&placeholder=<%= ctf[i+1].pholder %>&author=<%= ctf[i+1].author %>">
                 Solve</a>
             </div>
-            <div class="chall-box">
-              <p class="chall-text">
-                <%= ctf[i+2].title %>
-              </p>
-              <p>
-                <%= ctf[i+2].points %> Points
-              </p>
-              <a type="button" class="ctf-link" href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>
-                &points=<%= ctf[i+2].points %>&resource=<%= ctf[i+2].resource %>&category=<%= ctf[i+2].category %>
-                &qid=<%= ctf[i+2].id %>&placeholder=<%= ctf[i+2].pholder %>&author=<%= ctf[i+2].author %>">
-                Solve</a>
-            </div>
+            <% if((i+2)==5){ %>
+              <div class="chall-box">
+                <p class="chall-text text-center">
+                  This question has been removed now.
+                </p>
+                <p>
+                  <%= ctf[i+2].points %> Points
+                </p>
+              </div>
+              <% } else{ %>
+                <div class="chall-box">
+                  <p class="chall-text">
+                    <%= ctf[i+2].title %>
+                  </p>
+                  <p>
+                    <%= ctf[i+2].points %> Points
+                  </p>
+                  <a type="button" class="ctf-link" href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>
+                  &points=<%= ctf[i+2].points %>&resource=<%= ctf[i+2].resource %>&category=<%= ctf[i+2].category %>
+                  &qid=<%= ctf[i+2].id %>&placeholder=<%= ctf[i+2].pholder %>&author=<%= ctf[i+2].author %>">
+                    Solve</a>
+                </div>
+                <% } %>
           </div>
           <% } %>
 

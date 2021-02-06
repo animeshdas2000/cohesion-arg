@@ -481,7 +481,7 @@ var ctf = [
   {
     id: 14,
     title: 'Lost Phone',
-    question: 'Andrew lost his phone while he was on his way home but he was able to get some details back could you help me find the tower it was last found?',
+    question: 'Andrew lost his phone while he was on his way home but he was able to get some details back could you help me find the tower it was last found? \n flag format - cohesion.ctf{latitude,longitude} upto 2 decimal digits',
     points: 100,
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=18zUQ9F25TIDjZ6SUvweNmMCf41V1odM2',

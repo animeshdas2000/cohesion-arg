@@ -329,7 +329,7 @@ var ctf = [
     question: 'Find the Fish',
     points: 30,
     author: '!nVoK3r',
-    resource: 'https://drive.google.com/uc?export=download%26id=1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
+    resource: 'https://drive.google.com/uc?export=download%26id=1MV5dfOusunaoU7gY9GPH5HAqYqdD2aYe',
     flag: 'cohesion.ctf{D34df1sh_1s_4wes0m3}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',

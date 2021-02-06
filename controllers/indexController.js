@@ -327,6 +327,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
     flag: 'cohesion.ctf{D34df1sh_1s_4wes0m3}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 2,
@@ -337,6 +338,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1kYKa3AtsnYP1iY8mA6md5T-E7veoJi3G',
     flag: 'cohesion.ctf{B4se_91_1s_Lub}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 3,
@@ -347,6 +349,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1r-EPzzEoULucaE4Vrc0fGIL-ZzQIsmii',
     flag: 'cohesion.ctf{M4lb0g3_1s_c00l}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 4,
@@ -357,6 +360,7 @@ var ctf = [
     resource: null,
     flag: 'cohesion.ctf{JacobSecurity1857}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 5,
@@ -367,6 +371,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
     flag: 'cohesion.ctf{N1c3_K33p_Going_Buddy}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 6,
@@ -377,6 +382,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
     flag: 'cohesion.ctf{r5a_1s_3a5y}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 7,
@@ -387,6 +393,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=10TR6PWfs4WvAgYT88yF6A_p1nKmFnXlc',
     flag: 'ieeencu.ctf{Y0u_4r3_l33t}',
     category: 'Crypto',
+    format:'ieeencu.ctf{}'
   },
   {
     id: 8,
@@ -397,6 +404,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
     flag: 'cohesion.ctf{pigpenisfun}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 9,
@@ -407,6 +415,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=14hFh4av_xPLiLkVHkkVCkIha-i8NCUAA',
     flag: 'cohesion.ctf{Montserrat}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 10,
@@ -417,6 +426,7 @@ var ctf = [
     resource: null,
     flag: 'ieeencu.ctf{b3st_h4cker_0f_4ll_7ime}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 11,
@@ -427,6 +437,7 @@ var ctf = [
     resource: null,
     flag: 'cohesion.ctf{Ariana_Grande_Butera}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 12,
@@ -437,6 +448,7 @@ var ctf = [
     resource: null,
     flag: 'cohesion.ctf{188.95.7.114}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 13,
@@ -447,6 +459,7 @@ var ctf = [
     resource: null,
     flag: 'cohesion.ctf{AndroidAP}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 14,
@@ -457,6 +470,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=18zUQ9F25TIDjZ6SUvweNmMCf41V1odM2',
     flag: 'cohesion.ctf{51.49,-0.08}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 15,
@@ -467,6 +481,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1eWkUqHPOaRZFbwPWQUTNA2F-SSnyHnsi',
     flag: 'cohesion.ctf{03_06_2020_15}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 16,
@@ -477,6 +492,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1OysxhJYYBVUDVWnGYCAMkscTcCjvAG4T',
     flag: 'cohesion.ctf{Un1c0de_1s_l33t}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   {
     id: 17,
@@ -487,6 +503,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1vqPJrAirg86Ev--UrOWbJSVO0w9Y3eyK',
     flag: 'cohesion.ctf{D1git4l_1nk_4lw4ys_w0rks}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   {
     id: 18,
@@ -497,6 +514,7 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1W_iO69sYxXpxC5YlnCHcP-qh0KfNoMrv',
     flag: 'cohesion.ctf{P3rs1st3nce_1s_k3y}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   // {
   //   id: 19,

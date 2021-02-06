@@ -323,6 +323,17 @@ tbody {
   color: aqua;
   background-color: #1b1b1b;
 }
+.challenge-input-ctf {
+  padding: 10px 20px;
+  border-radius: 8px;
+  height: 60px;
+  width: 500px;
+  font-size: 18pt;
+  border: none;
+  text-transform: none;
+  color: aqua;
+  background-color: #1b1b1b;
+}
 .challenge-input:active {
   border: none;
 }

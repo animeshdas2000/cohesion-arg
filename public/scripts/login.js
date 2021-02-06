@@ -19,20 +19,21 @@ function login () {
 }
 
 function resetPassword () {
-  if (isEmail ($ ('#resetEmail').val ())) {
-    firebase
-      .auth ()
-      .sendPasswordResetEmail ($ ('#resetEmail').val ())
-      .then (function () {
-        $ ('#reset-error').text (
-          'An email containing the reset password link has been sent.'
-        );
-      })
-      .catch (function (error) {
-        $ ('#reset-error').text (error.message);
-      });
-    $ ('#resetEmail').val ('');
-  } else $ ('#reset-error').text ('Please enter valid input!');
+  $.ajax ({
+    url: '/users/resetpass',
+    type: 'post',
+    contentType: 'application/json',
+    dataType: 'json',
+    data: JSON.stringify ({
+      email: $ ('#resetEmail').val (),
+    }),
+    success: function (data) {
+      $ ('#reset-error').text (data.msg);
+    },
+    error: function (jqXhr, textStatus, errorMessage) {
+      $ ('#reset-error').text ('Some error occured. Try again!');
+    },
+  });
 }
 
 function isEmail (input) {

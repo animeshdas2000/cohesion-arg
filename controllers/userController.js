@@ -34,7 +34,21 @@ exports.login = function (req, res) {
       res.cookie ('uid', response.user.uid).send ({msg: 'Login Successful!'});
     })
     .catch (function (error) {
-      res.status(401).send ({msg: error.toString()});
+      res.status (401).send ({msg: error.toString ()});
+    });
+};
+
+exports.resetPassword = function (req, res) {
+  firebase
+    .auth ()
+    .sendPasswordResetEmail (req.body.email)
+    .then (function () {
+      res.send ({
+        msg: 'An email containing the reset password link has been sent.',
+      });
+    })
+    .catch (function (error) {
+      $ ('#reset-error').text (error.message);
     });
 };
 

@@ -371,7 +371,7 @@ var ctf = [
     question: 'Knowledge of some basic ciphers can be really useful.',
     points: 50,
     author: '!nVoK3r',
-    resource: 'https://drive.google.com/uc?export=download%26id=1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
+    resource: 'https://drive.google.com/uc?export=download%26id=1wkhOO1T23HxPiXXCDPcmNqJdUvGRxRoG',
     flag: 'cohesion.ctf{N1c3_K33p_Going_Buddy}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',

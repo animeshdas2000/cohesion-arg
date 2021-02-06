@@ -362,7 +362,7 @@ var ctf = [
   {
     id: 4,
     title: 'Weird Sound',
-    question: 'Recently the author got a message from his buddy but he thinks this is an encoded message can you decode it for him?',
+    question: 'Recently the author got a message from his buddy but he thinks this is an encoded message can you decode it for him? || Flag format: cohesion.ctf{ANSWER} (No Spaces)',
     points: 100,
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',

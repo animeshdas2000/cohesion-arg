@@ -97,6 +97,7 @@ exports.argSubmit = function (req, res) {
         ref.update ({
           arglevel: newLevel,
           argtime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
+          modifiedAt: Date.now()
         });
       });
       rtdb.ref (`/${req.uid}`).update ({arglevel: newLevel});
@@ -152,6 +153,7 @@ exports.ggez = (req, res, next) => {
         ref.update ({
           arglevel: newLevel,
           argtime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
+          modifiedAt: Date.now()
         });
       });
       rtdb.ref (`/${req.uid}`).update ({arglevel: newLevel});
@@ -164,6 +166,7 @@ exports.argLeaderboard = (req, res) => {
   firestore
     .collection ('users')
     .orderBy ('arglevel', 'desc')
+    .orderBy('modifiedAt','asc')
     .select ('name', 'arglevel')
     .get ()
     .then (function (querySnapshot) {
@@ -192,7 +195,7 @@ exports.ctfSubmit = (req, res) => {
     rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
       points = snapshot.val ().ctflevel;
       var ref = firestore.collection ('users').doc (`${req.uid}`);
-      var points = points + ctf[`${req.body.qid}`]['points'];
+      var points = points + ctf[`${req.body.qid-1}`]['points'];
       ref.get ().then (function (doc) {
         if (doc.data ().ctfdone.includes (req.body.qid))
           res.send ({msg: 'You have already attempted this challenge :)'});
@@ -201,6 +204,7 @@ exports.ctfSubmit = (req, res) => {
             ctflevel: points,
             ctfdone: admin.firestore.FieldValue.arrayUnion (req.body.qid),
             ctftime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
+            modifiedAt: Date.now ()
           });
           rtdb.ref (`/${req.uid}`).update ({ctflevel: points});
           res.status (200).send ({
@@ -220,6 +224,7 @@ exports.ctfLeaderboard = (req, res) => {
   firestore
     .collection ('users')
     .orderBy ('ctflevel', 'desc')
+    .orderBy('modifiedAt','asc')
     .select ('name', 'ctflevel')
     .get ()
     .then (function (querySnapshot) {

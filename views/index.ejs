@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cohesion | ARG-CTF</title>
+    <%- include('partials/style.ejs') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
   </head>
+
   <body style="color: white">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('partials/navbar.ejs') %>
+    <main class="container">
+      <h1 class="h1-white">Game Starts In</h1>
+      <br />
+      <div class="container" id="clockdiv">
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Days</div>
+        </div>
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Hours</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
+      </div>
+      <br /><br />
+      <br /><br />
+      <div class="container text-center game-mode">
+        <div class="select-game" id="arg">
+          <img src="img/arg.png" class="" width="100px" alt="" />
+          <p>ARG</p>
+        </div>
+        <div class="select-game" id="ctf">
+          <img src="img/ctf.png" class="" width="100px" alt="" />
+          <p>CTF</p>
+        </div>
+
+        <!-- <button class="auth-btn">ARG</button>
+        <button class="auth-btn" id="ctf">CTF</button> -->
+      </div>
+    </main>
   </body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -193,7 +193,9 @@ input::-webkit-inner-spin-button {
   border: #00e5ff solid 2px;
   border-radius: 5px;
 }
-
+.table-blue {
+  border-bottom: none;
+}
 @media screen and (max-width: 840px) {
   .section-header {
     font-size: 5rem;

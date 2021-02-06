@@ -328,6 +328,7 @@ var ctf = [
     flag: 'cohesion.ctf{D34df1sh_1s_4wes0m3}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 2,
@@ -339,6 +340,7 @@ var ctf = [
     flag: 'cohesion.ctf{B4se_91_1s_Lub}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 3,
@@ -350,6 +352,7 @@ var ctf = [
     flag: 'cohesion.ctf{M4lb0g3_1s_c00l}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 4,
@@ -368,10 +371,11 @@ var ctf = [
     question: 'Knowledge of some basic ciphers can be really useful.',
     points: 50,
     author: '!nVoK3r',
-    resource: 'https://drive.google.com/uc?export=download%26id=1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
+    resource: 'https://drive.google.com/uc?export=download%26id=1wkhOO1T23HxPiXXCDPcmNqJdUvGRxRoG',
     flag: 'cohesion.ctf{N1c3_K33p_Going_Buddy}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 6,
@@ -383,6 +387,7 @@ var ctf = [
     flag: 'cohesion.ctf{r5a_1s_3a5y}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 7,
@@ -394,6 +399,7 @@ var ctf = [
     flag: 'ieeencu.ctf{Y0u_4r3_l33t}',
     pholder:'ieeencu.ctf{}',
     category: 'Crypto',
+    format:'ieeencu.ctf{}'
   },
   {
     id: 8,
@@ -405,6 +411,7 @@ var ctf = [
     flag: 'cohesion.ctf{pigpenisfun}',
     pholder:'cohesion.ctf{}',
     category: 'Crypto',
+    format:'cohesion.ctf{}'
   },
   {
     id: 9,
@@ -416,6 +423,7 @@ var ctf = [
     flag: 'cohesion.ctf{Montserrat}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 10,
@@ -427,6 +435,7 @@ var ctf = [
     flag: 'ieeencu.ctf{b3st_h4cker_0f_4ll_7ime}',
     pholder:'ieeencu.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 11,
@@ -438,6 +447,7 @@ var ctf = [
     flag: 'cohesion.ctf{Ariana_Grande_Butera}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 12,
@@ -449,6 +459,7 @@ var ctf = [
     flag: 'cohesion.ctf{188.95.7.114}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 13,
@@ -460,6 +471,7 @@ var ctf = [
     flag: 'cohesion.ctf{AndroidAP}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 14,
@@ -471,6 +483,7 @@ var ctf = [
     flag: 'cohesion.ctf{51.49,-0.08}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 15,
@@ -482,6 +495,7 @@ var ctf = [
     flag: 'cohesion.ctf{03_06_2020_15}',
     pholder:'cohesion.ctf{}',
     category: 'OSINT',
+    format:'cohesion.ctf{}'
   },
   {
     id: 16,
@@ -493,6 +507,7 @@ var ctf = [
     flag: 'cohesion.ctf{Un1c0de_1s_l33t}',
     pholder:'cohesion.ctf{}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   {
     id: 17,
@@ -504,6 +519,7 @@ var ctf = [
     flag: 'cohesion.ctf{D1git4l_1nk_4lw4ys_w0rks}',
     pholder:'cohesion.ctf{}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   {
     id: 18,
@@ -515,6 +531,7 @@ var ctf = [
     flag: 'cohesion.ctf{P3rs1st3nce_1s_k3y}',
     pholder:'cohesion.ctf{}',
     category: 'Misc',
+    format:'cohesion.ctf{}'
   },
   // {
   //   id: 19,

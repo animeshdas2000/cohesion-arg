@@ -30,7 +30,12 @@
           <p class="question text-center pb-2" id="question">
             <%- challenge.question %><br />
           </p>
-
+          <p class="question text-center pb-2" >
+            <%- challenge.format %><br />
+          </p>
+          <p class="question text-center pb-2" >
+            <%- challenge.author %><br />
+          </p>
 
 
           <p class="text-center">
@@ -41,7 +46,7 @@
                 <% } %>
 
           </p>
-          <input class="challenge-input mx-auto d-block" id="answer" type="text" placeholder="<%= challenge.placeholder %>" />
+          <input class="challenge-input-ctf mx-auto d-block" id="answer" type="text" placeholder="<%= challenge.pholder %>" />
           <br />
           <div id="answer_error" class="error text-center"></div>
           <br />

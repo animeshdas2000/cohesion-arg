@@ -89,8 +89,7 @@ exports.argSubmit = function (req, res) {
     level = snapshot.val ().arglevel;
     var ref = firestore.collection ('users').doc (`${req.uid}`);
     if (
-      arg[`${level}`]['answer'] == req.body.answer ||
-      'IEEECS' == req.body.answer
+      arg[`${level}`]['answer'] == req.body.answer
     ) {
       var newLevel = level + 1;
       ref.get ().then (function (doc) {

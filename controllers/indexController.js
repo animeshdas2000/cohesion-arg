@@ -605,7 +605,7 @@ var ctf = [
     points: 100,
     author: 'mystog3n',
     resource: 'https://ctf-post-office-t3ppmfifsq-as.a.run.app',
-    flag: 'cohesion.ctf{W0RDPR355_H4CK1NG_U51NG_R0CKY0U}',
+    flag: 'cohesion.ctf{Y0u_h4v3_G0T_m41l}',
     category: 'Web',
     pholder:'cohesion.ctf{}',
     format:'cohesion.ctf{}',
@@ -719,7 +719,7 @@ var ctf = [
   //   points: 200,
   //   author: 'mystog3n',
   //   resource: 'https://ctf-word-in-the-press-t3ppmfifsq-as.a.run.app',
-  //   flag: 'cohesion.ctf{Y0u_h4v3_G0T_m41l}',
+  //   flag: 'cohesion.ctf{W0RDPR355_H4CK1NG_U51NG_R0CKY0U}',
   //   category: 'Web',
   // },
 ];

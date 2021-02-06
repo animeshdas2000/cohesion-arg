@@ -239,13 +239,13 @@ var arg = {
     question: 'I am the giant that dominates the world and daily lives of people. <br> Kids in the kindergarten know about me. <br> My name got changed because some old dude that helps everyone on the web messed up his and my identity. <br> Not his fault though, cause it’s you people that mess up. <br> I am the dream and I have the cream. <br> Don’t need to tell that old dude’s name because you see him everyday like it’s your shrine, let’s see if you can name mine.',
     answer: 'ALPHABET',
   },
-  '1': {
+  '2': {
     question: 'Hey there, probably like most of you I am single and I take up the central access memory in your PCs.  <br>  You can call me an old Lady cause I got the lady parts and I indeed am old. <br> My new counterpart is dimm-witted as per me but nowadays people use it to boost their pc performance.',
     answer: 'SIMM',
   },
-  '2': {
-    question: '<img src="https://i.ibb.co/S3JNv1V/image.jpg" width="300px"/><br><br><img src="https://i.ibb.co/zXsnnxv/image-1.jpg" width="500px"/>',
-    answer: 'QCERT',
+  '1': {
+    question: 'Q1: Which cipher which rely on sophisticated gearing mechanism.<br><br>Q2: What is the most widely used encryption technique of modern times.',
+    answer: 'ENIGMARIJNDAEL',
   },
   '3': {
     question: 'You’ve received the details for this question, time for you to find out where!',

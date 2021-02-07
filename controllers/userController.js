@@ -1,6 +1,7 @@
 const firebase = require ('firebase').default;
 const nodemailer = require ('nodemailer');
 const ejs = require ('ejs');
+const admin = require ('firebase-admin');
 /** @type {import("express").RequestHandler} */
 
 exports.signup = async function (req, res) {
@@ -81,3 +82,17 @@ function sendEmail (name, email) {
     }
   );
 }
+
+exports.changeEmail = function (req, res) {
+  admin
+    .auth ()
+    .updateUser (req.uid, {
+      email: req.body.email,
+    })
+    .then (userRecord => {
+      res.send({msg:"Successfully updated!"});
+    })
+    .catch (error => {
+      res.send({msg:"Some error occurred!"});
+    });
+};

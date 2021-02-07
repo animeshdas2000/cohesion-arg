@@ -88,15 +88,13 @@ exports.argSubmit = function (req, res) {
   rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
     level = snapshot.val ().arglevel;
     var ref = firestore.collection ('users').doc (`${req.uid}`);
-    if (
-      arg[`${level}`]['answer'] == req.body.answer
-    ) {
+    if (arg[`${level}`]['answer'] == req.body.answer) {
       var newLevel = level + 1;
       ref.get ().then (function (doc) {
         ref.update ({
           arglevel: newLevel,
           argtime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
-          modifiedAt: Date.now()
+          modifiedAt: Date.now (),
         });
       });
       rtdb.ref (`/${req.uid}`).update ({arglevel: newLevel});
@@ -152,7 +150,7 @@ exports.ggez = (req, res, next) => {
         ref.update ({
           arglevel: newLevel,
           argtime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
-          modifiedAt: Date.now()
+          modifiedAt: Date.now (),
         });
       });
       rtdb.ref (`/${req.uid}`).update ({arglevel: newLevel});
@@ -165,7 +163,7 @@ exports.argLeaderboard = (req, res) => {
   firestore
     .collection ('users')
     .orderBy ('arglevel', 'desc')
-    .orderBy('modifiedAt','asc')
+    .orderBy ('modifiedAt', 'asc')
     .select ('name', 'arglevel')
     .get ()
     .then (function (querySnapshot) {
@@ -182,7 +180,18 @@ exports.argLeaderboard = (req, res) => {
 };
 
 exports.ctf = (req, res) => {
-  res.render ('ctf', {ctf});
+  var remCTF = ctf;
+  var ref = firestore.collection ('users').doc (`${req.uid}`);
+  ref
+    .get ()
+    .then (function (doc) {
+      ctfdone = doc.data ().ctfdone;
+      ctfdone.push('6');
+      remCTF = remCTF.filter (function (chall) {
+        return !ctfdone.includes (chall.id.toString ());
+      });
+      res.render ('ctf', {remCTF});
+    });
 };
 
 exports.ctfChallenge = (req, res) => {
@@ -194,7 +203,7 @@ exports.ctfSubmit = (req, res) => {
     rtdb.ref (`/${req.uid}`).once ('value', function (snapshot) {
       points = snapshot.val ().ctflevel;
       var ref = firestore.collection ('users').doc (`${req.uid}`);
-      var points = points + ctf[`${req.body.qid-1}`]['points'];
+      var points = points + ctf[`${req.body.qid - 1}`]['points'];
       ref.get ().then (function (doc) {
         if (doc.data ().ctfdone.includes (req.body.qid))
           res.send ({msg: 'You have already attempted this challenge :)'});
@@ -203,7 +212,7 @@ exports.ctfSubmit = (req, res) => {
             ctflevel: points,
             ctfdone: admin.firestore.FieldValue.arrayUnion (req.body.qid),
             ctftime: admin.firestore.FieldValue.arrayUnion (Date.now ()),
-            modifiedAt: Date.now ()
+            modifiedAt: Date.now (),
           });
           rtdb.ref (`/${req.uid}`).update ({ctflevel: points});
           res.status (200).send ({
@@ -223,7 +232,7 @@ exports.ctfLeaderboard = (req, res) => {
   firestore
     .collection ('users')
     .orderBy ('ctflevel', 'desc')
-    .orderBy('modifiedAt','asc')
+    .orderBy ('modifiedAt', 'asc')
     .select ('name', 'ctflevel')
     .get ()
     .then (function (querySnapshot) {
@@ -330,9 +339,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1MV5dfOusunaoU7gY9GPH5HAqYqdD2aYe',
     flag: 'cohesion.ctf{D34df1sh_1s_4wes0m3}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 2,
@@ -342,9 +351,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1kYKa3AtsnYP1iY8mA6md5T-E7veoJi3G',
     flag: 'cohesion.ctf{B4se_91_1s_Lub}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 3,
@@ -354,9 +363,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1r-EPzzEoULucaE4Vrc0fGIL-ZzQIsmii',
     flag: 'cohesion.ctf{M4lb0g3_1s_c00l}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 4,
@@ -366,7 +375,7 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',
     flag: 'cohesion.ctf{DTMFTONESAREFUN}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Misc',
   },
   {
@@ -377,9 +386,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1wkhOO1T23HxPiXXCDPcmNqJdUvGRxRoG',
     flag: 'cohesion.ctf{N1c3_K33p_Going_Buddy}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 6,
@@ -389,9 +398,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1nuUXiEVJTTF5QDxgcCjNl_qyLdHv7P4k',
     flag: 'cohesion.ctf{r5a_1s_3a5y}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 7,
@@ -401,9 +410,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=10TR6PWfs4WvAgYT88yF6A_p1nKmFnXlc',
     flag: 'ieeencu.ctf{Y0u_4r3_l33t}',
-    pholder:'ieeencu.ctf{}',
+    pholder: 'ieeencu.ctf{}',
     category: 'Crypto',
-    format:'ieeencu.ctf{}'
+    format: 'ieeencu.ctf{}',
   },
   {
     id: 8,
@@ -413,9 +422,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1KvIF0VtfE5Q4R7lAaIY8y4tNWXaACWzD',
     flag: 'cohesion.ctf{pigpenisfun}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Crypto',
-    format:'cohesion.ctf{}',
+    format: 'cohesion.ctf{}',
   },
   {
     id: 9,
@@ -425,9 +434,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=14hFh4av_xPLiLkVHkkVCkIha-i8NCUAA',
     flag: 'cohesion.ctf{Montserrat}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 10,
@@ -437,9 +446,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: null,
     flag: 'ieeencu.ctf{b3st_h4cker_0f_4ll_7ime}',
-    pholder:'ieeencu.ctf{}',
+    pholder: 'ieeencu.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 11,
@@ -449,9 +458,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: null,
     flag: 'cohesion.ctf{Ariana_Grande_Butera}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 12,
@@ -461,9 +470,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: null,
     flag: 'cohesion.ctf{188.95.7.114}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 13,
@@ -473,9 +482,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: null,
     flag: 'cohesion.ctf{AndroidAP}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 14,
@@ -485,9 +494,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=18zUQ9F25TIDjZ6SUvweNmMCf41V1odM2',
     flag: 'cohesion.ctf{51.49,-0.08}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 15,
@@ -497,9 +506,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1eWkUqHPOaRZFbwPWQUTNA2F-SSnyHnsi',
     flag: 'cohesion.ctf{03_06_2020_15}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'OSINT',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 16,
@@ -509,9 +518,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1OysxhJYYBVUDVWnGYCAMkscTcCjvAG4T',
     flag: 'cohesion.ctf{Un1c0de_1s_l33t}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Misc',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 17,
@@ -521,9 +530,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1vqPJrAirg86Ev--UrOWbJSVO0w9Y3eyK',
     flag: 'cohesion.ctf{D1git4l_1nk_4lw4ys_w0rks}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Misc',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 18,
@@ -533,9 +542,9 @@ var ctf = [
     author: '!nVoK3r',
     resource: 'https://drive.google.com/uc?export=download%26id=1W_iO69sYxXpxC5YlnCHcP-qh0KfNoMrv',
     flag: 'cohesion.ctf{P3rs1st3nce_1s_k3y}',
-    pholder:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
     category: 'Misc',
-    format:'cohesion.ctf{}'
+    format: 'cohesion.ctf{}',
   },
   {
     id: 19,
@@ -546,8 +555,8 @@ var ctf = [
     resource: null,
     flag: 'cohesion.ctf{TH4NK5F0RJ01N1NGD15C0RD}',
     category: 'Misc',
-    pholder:'cohesion.ctf{}',
-    format:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
+    format: 'cohesion.ctf{}',
   },
   {
     id: 20,
@@ -557,11 +566,11 @@ var ctf = [
     author: 'mystog3n',
     resource: 'https://drive.google.com/uc?export=download%26id=12YEf_z4bH1FohpMc9VDkqA3HOrfga4zL',
     flag: 'IEENCU.CTF{R3V3R53_15_N0T_H4RD_0000}',
-    pholder:'IEEENCU.CTF{}',
+    pholder: 'IEEENCU.CTF{}',
     category: 'Rev',
-    format:'IEEENCU.CTF{}',
+    format: 'IEEENCU.CTF{}',
   },
-   {
+  {
     id: 21,
     title: 'Gamer Boy',
     question: "Do you like to play classic console games? Yes? That's awesome, so do I. Here check out this list of the games I've played. You  can also search for Games here.",
@@ -570,10 +579,10 @@ var ctf = [
     resource: 'https://ctf-gamer-boy-t3ppmfifsq-as.a.run.app',
     flag: 'cohesion.ctf{1nj3ct10n-4tt4ck_15-b35t}',
     category: 'Web',
-    pholder:'cohesion.ctf{}',
-    format:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
+    format: 'cohesion.ctf{}',
   },
- 
+
   {
     id: 22,
     title: 'Jack Jill',
@@ -583,8 +592,8 @@ var ctf = [
     resource: 'https://ctf-jack-jill-t3ppmfifsq-as.a.run.app',
     flag: 'cohesion.ctf{git-c0mm1t1ng_t0_th3_c4u53}',
     category: 'Web',
-    pholder:'cohesion.ctf{}',
-    format:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
+    format: 'cohesion.ctf{}',
   },
   {
     id: 23,
@@ -595,8 +604,8 @@ var ctf = [
     resource: 'https://drive.google.com/uc?export=download%26id=1l_FEMYTZq0AOXWMYEf2strzHISPFcSkH',
     flag: 'IEEENCU.CTF{W0W_4NDR01D_H45_4PK!!}',
     category: 'Rev',
-    pholder:'IEEENCU.CTF{}',
-    format:'IEEENCU.CTF{}',
+    pholder: 'IEEENCU.CTF{}',
+    format: 'IEEENCU.CTF{}',
   },
   {
     id: 24,
@@ -607,119 +616,119 @@ var ctf = [
     resource: 'https://ctf-post-office-t3ppmfifsq-as.a.run.app',
     flag: 'cohesion.ctf{Y0u_h4v3_G0T_m41l}',
     category: 'Web',
-    pholder:'cohesion.ctf{}',
-    format:'cohesion.ctf{}',
+    pholder: 'cohesion.ctf{}',
+    format: 'cohesion.ctf{}',
   },
-   // {
-  //   id: 25,
-  //   title: 'Basic Rev 2',
-  //   question: "Let's see how good your basics are, part 2.",
-  //   points: 100,
-  //   author: 'mystog3n',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1NZU_ZFnNVMwlq05APODkUckPC6gR17B4',
-  //   flag: 'IEEENCU.CTF{B451C-R3V3R53-3NG-4-FUN}',
-  //   category: 'Rev',
-  // },
-  // {
-  //   id: 25,
-  //   title: 'Gamer Boy',
-  //   question: "Do you like to play classic console games? Yes? That's awesome, so do I. Here check out this list of the games I've played. You  can also search for Games here.",
-  //   points: 170,
-  //   author: 'mystog3n',
-  //   resource: 'https://ctf-gamer-boy-t3ppmfifsq-as.a.run.app',
-  //   flag: 'cohesion.ctf{1nj3ct10n-4tt4ck_15-b35t}',
-  //   category: 'Web',
-  // },
-  // {
-  //   id: 25,
-  //   title: 'Basic Rev 2',
-  //   question: "Let's see how good your basics are, part 2.",
-  //   points: 100,
-  //   author: 'mystog3n',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1NZU_ZFnNVMwlq05APODkUckPC6gR17B4',
-  //   flag: 'IEEENCU.CTF{B451C-R3V3R53-3NG-4-FUN}',
-  //   category: 'Rev',
-  // },
-  // {
-  //   id: 19,
-  //   title: 'Weird Sound',
-  //   question: 'Recently the author got a message from his buddy but he thinks this is an encoded message can you decode it for him?',
-  //   points: 100,
-  //   author: '!nVoK3r',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',
-  //   flag: 'cohesion.ctf{DTMFTONESAREFUN}',
-  //   pholder:'cohesion.ctf{}',
-  //   category: 'Misc',
-  // },
-  // {
-  //   id: 20,
-  //   title: 'Dabbe Me Dabba',
-  //   question: "Let's see how deep the rabbit hole goes... ;)",
-  //   points: 50,
-  //   author: 'mystog3n',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1sS83A_If7kA_kzlYfIWc-8NpUFBBzdtG',
-  //   flag: 'cohesion.ctf{y0u_mu5t_d1g_d33p-ieee}',
-  //   category: 'Misc',
-  // },
-  // {
-  //   id: 22,
-  //   title: 'Lost in the Dimensions',
-  //   question: '',
-  //   points: 200,
-  //   author: '',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1PbZuztzFMHYBrs2vOOl3JxqxyyyADsQ9',
-  //   flag: 'cohesion.ctf{H1DD3N_1N_D1M3N510N5}',
-  //   category: 'Misc',
-  // },
-  // {
-  //   id: 26,
-  //   title: 'Pyro',
-  //   question: '',
-  //   points: 170,
-  //   author: 'mystog3n',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=1JgpzgxfjTbLynOkZqz3JsjoMdyDBWreS',
-  //   flag: 'IEEENCU.CTF{TH3_FUN_0F_R3VERS1NG-PYTH0N}',
-  //   category: 'Rev',
-  // },
-  // {
-  //   id: 27,
-  //   title: 'Grep The Flag',
-  //   question: '',
-  //   points: 230,
-  //   author: 'mystog3n',
-  //   resource: 'https://drive.google.com/uc?export=download%26id=16Se949ch9Ft8_J30HSfPYf-xeiSLh_QH',
-  //   flag: 'IEEENCU.CTF{GR3PP1NG_TH3_FL4G_15_H4RD_4F}',
-  //   category: 'Rev',
-  // },
-  // {
-  //   id: 28,
-  //   title: 'Not So Basic',
-  //   question: "After some basic rounds, let's see how you do in a not so basic challenge.",
-  //   points: 270,
-  //   author: 'mystog3n',
-  //   resource: null,
-  //   flag: 'IEEENCU.CTF{FUNCT10N5-4R3NT-FUN-4ND-345Y}',
-  //   category: 'Rev',
-  // },
- 
-  // {
-  //   id: 30,
-  //   title: 'Johnny With Tori',
-  //   question: 'Johnny wants to impress Tori by finding the flag. However only the author has access to the REAL flag. Can you help Johnny find the flag?',
-  //   points: 150,
-  //   author: 'mystog3n',
-  //   resource: 'https://ctf-jack-with-tori-t3ppmfifsq-as.a.run.app',
-  //   flag: 'cohesion.ctf{JwT_t0k3N_t0_Th3_w1n}',
-  //   category: 'Web',
-  // }, 
-  // {
-  //   id: 32,
-  //   title: 'Word in the Press',
-  //   question: 'Alom has a friend Pooja. Pooja works in a press company and tells the latest happenings to Alom. With the information from Pooja, Alom writes blogs about latest happening. Go check it out.',
-  //   points: 200,
-  //   author: 'mystog3n',
-  //   resource: 'https://ctf-word-in-the-press-t3ppmfifsq-as.a.run.app',
-  //   flag: 'cohesion.ctf{W0RDPR355_H4CK1NG_U51NG_R0CKY0U}',
-  //   category: 'Web',
-  // },
+  {
+    id: 25,
+    title: 'Basic Rev 2',
+    question: "Let's see how good your basics are, part 2.",
+    points: 100,
+    author: 'mystog3n',
+    resource: 'https://drive.google.com/uc?export=download%26id=1NZU_ZFnNVMwlq05APODkUckPC6gR17B4',
+    flag: 'IEEENCU.CTF{B451C-R3V3R53-3NG-4-FUN}',
+    category: 'Rev',
+  },
+  {
+    id: 25,
+    title: 'Gamer Boy',
+    question: "Do you like to play classic console games? Yes? That's awesome, so do I. Here check out this list of the games I've played. You  can also search for Games here.",
+    points: 170,
+    author: 'mystog3n',
+    resource: 'https://ctf-gamer-boy-t3ppmfifsq-as.a.run.app',
+    flag: 'cohesion.ctf{1nj3ct10n-4tt4ck_15-b35t}',
+    category: 'Web',
+  },
+  {
+    id: 25,
+    title: 'Basic Rev 2',
+    question: "Let's see how good your basics are, part 2.",
+    points: 100,
+    author: 'mystog3n',
+    resource: 'https://drive.google.com/uc?export=download%26id=1NZU_ZFnNVMwlq05APODkUckPC6gR17B4',
+    flag: 'IEEENCU.CTF{B451C-R3V3R53-3NG-4-FUN}',
+    category: 'Rev',
+  },
+  {
+    id: 19,
+    title: 'Weird Sound',
+    question: 'Recently the author got a message from his buddy but he thinks this is an encoded message can you decode it for him?',
+    points: 100,
+    author: '!nVoK3r',
+    resource: 'https://drive.google.com/uc?export=download%26id=1fEd-JmqpRuYe6Xyi0A6yYfXsXWWUZsTL',
+    flag: 'cohesion.ctf{DTMFTONESAREFUN}',
+    pholder:'cohesion.ctf{}',
+    category: 'Misc',
+  },
+  {
+    id: 20,
+    title: 'Dabbe Me Dabba',
+    question: "Let's see how deep the rabbit hole goes... ;)",
+    points: 50,
+    author: 'mystog3n',
+    resource: 'https://drive.google.com/uc?export=download%26id=1sS83A_If7kA_kzlYfIWc-8NpUFBBzdtG',
+    flag: 'cohesion.ctf{y0u_mu5t_d1g_d33p-ieee}',
+    category: 'Misc',
+  },
+  {
+    id: 22,
+    title: 'Lost in the Dimensions',
+    question: '',
+    points: 200,
+    author: '',
+    resource: 'https://drive.google.com/uc?export=download%26id=1PbZuztzFMHYBrs2vOOl3JxqxyyyADsQ9',
+    flag: 'cohesion.ctf{H1DD3N_1N_D1M3N510N5}',
+    category: 'Misc',
+  },
+  {
+    id: 26,
+    title: 'Pyro',
+    question: '',
+    points: 170,
+    author: 'mystog3n',
+    resource: 'https://drive.google.com/uc?export=download%26id=1JgpzgxfjTbLynOkZqz3JsjoMdyDBWreS',
+    flag: 'IEEENCU.CTF{TH3_FUN_0F_R3VERS1NG-PYTH0N}',
+    category: 'Rev',
+  },
+  {
+    id: 27,
+    title: 'Grep The Flag',
+    question: '',
+    points: 230,
+    author: 'mystog3n',
+    resource: 'https://drive.google.com/uc?export=download%26id=16Se949ch9Ft8_J30HSfPYf-xeiSLh_QH',
+    flag: 'IEEENCU.CTF{GR3PP1NG_TH3_FL4G_15_H4RD_4F}',
+    category: 'Rev',
+  },
+  {
+    id: 28,
+    title: 'Not So Basic',
+    question: "After some basic rounds, let's see how you do in a not so basic challenge.",
+    points: 270,
+    author: 'mystog3n',
+    resource: null,
+    flag: 'IEEENCU.CTF{FUNCT10N5-4R3NT-FUN-4ND-345Y}',
+    category: 'Rev',
+  },
+
+  {
+    id: 30,
+    title: 'Johnny With Tori',
+    question: 'Johnny wants to impress Tori by finding the flag. However only the author has access to the REAL flag. Can you help Johnny find the flag?',
+    points: 150,
+    author: 'mystog3n',
+    resource: 'https://ctf-jack-with-tori-t3ppmfifsq-as.a.run.app',
+    flag: 'cohesion.ctf{JwT_t0k3N_t0_Th3_w1n}',
+    category: 'Web',
+  },
+  {
+    id: 32,
+    title: 'Word in the Press',
+    question: 'Alom has a friend Pooja. Pooja works in a press company and tells the latest happenings to Alom. With the information from Pooja, Alom writes blogs about latest happening. Go check it out.',
+    points: 200,
+    author: 'mystog3n',
+    resource: 'https://ctf-word-in-the-press-t3ppmfifsq-as.a.run.app',
+    flag: 'cohesion.ctf{W0RDPR355_H4CK1NG_U51NG_R0CKY0U}',
+    category: 'Web',
+  },
 ];

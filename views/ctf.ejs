@@ -1,75 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CTF | Cohesion</title>
-    <%- include('partials/style.ejs') %>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTF | Cohesion</title>
+  <%- include('partials/style.ejs') %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts/challenge.js"></script>
-  </head>
+</head>
 
-  <body>
-    <%- include('partials/navbar.ejs') %>
+<body>
+  <%- include('partials/navbar.ejs') %>
     <main>
       <div class="container">
         <h2 class="h1-white">CTF Challenges</h2>
         <br /><br />
 
-        <% for(var i=0; i < ctf.length; i+=3) { %>
-        <div class="box-row">
-          <div class="chall-box">
-            <p class="chall-text"><%= ctf[i].title %></p>
-            <p><%= ctf[i].points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= ctf[i].title %>&question=<%= ctf[i].question %>
-                &points=<%= ctf[i].points %>&resource=<%= ctf[i].resource %>&category=<%= ctf[i].category %>
-                &qid=<%= ctf[i].id %>&placeholder=<%= ctf[i].pholder %>&author=<%= ctf[i].author %>"
-            >
-              Solve</a
-            >
+        <% for(var i=0; i < remCTF.length; i+=3) { %>
+          <div class="box-row">
+            <div class="chall-box">
+              <p class="chall-text">
+                <%= remCTF[i].title %>
+              </p>
+              <p>
+                <%= remCTF[i].points %> Points
+              </p>
+              <a type="button" class="ctf-link" href="/ctf/challenge?title=<%= remCTF[i].title %>&question=<%= remCTF[i].question %>
+                &points=<%= remCTF[i].points %>&resource=<%= remCTF[i].resource %>&category=<%= remCTF[i].category %>
+                &qid=<%= remCTF[i].id %>&placeholder=<%= remCTF[i].pholder %>&author=<%= remCTF[i].author %>">
+                Solve</a>
+            </div>
+            <% if(i+1==remCTF.length) break %>
+                <div class="chall-box">
+                  <p class="chall-text">
+                    <%= remCTF[i+1].title %>
+                  </p>
+                  <p>
+                    <%= remCTF[i+1].points %> Points
+                  </p>
+                  <a type="button" class="ctf-link" href="/ctf/challenge?title=<%= remCTF[i+1].title %>&question=<%= remCTF[i+1].question %>
+                &points=<%= remCTF[i+1].points %>&resource=<%= remCTF[i+1].resource %>&category=<%= remCTF[i+1].category %>
+                &qid=<%= remCTF[i+1].id %>&placeholder=<%= remCTF[i+1].pholder %>&author=<%= remCTF[i+1].author %>">
+                    Solve</a>
           </div>
-          <div class="chall-box">
-            <p class="chall-text"><%= ctf[i+1].title %></p>
-            <p><%= ctf[i+1].points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= ctf[i+1].title %>&question=<%= ctf[i+1].question %>
-                &points=<%= ctf[i+1].points %>&resource=<%= ctf[i+1].resource %>&category=<%= ctf[i+1].category %>
-                &qid=<%= ctf[i+1].id %>&placeholder=<%= ctf[i+1].pholder %>&author=<%= ctf[i+1].author %>"
-            >
-              Solve</a
-            >
-          </div>
-          <% if((i+2)==5){ %>
-          <div class="chall-box">
-            <p class="chall-text text-center">
-              This question has been removed now.
-            </p>
-            <p><%= ctf[i+2].points %> Points</p>
-          </div>
-          <% } else{ %>
-          <div class="chall-box">
-            <p class="chall-text"><%= ctf[i+2].title %></p>
-            <p><%= ctf[i+2].points %> Points</p>
-            <a
-              type="button"
-              class="ctf-link"
-              href="/ctf/challenge?title=<%= ctf[i+2].title %>&question=<%= ctf[i+2].question %>
-                  &points=<%= ctf[i+2].points %>&resource=<%= ctf[i+2].resource %>&category=<%= ctf[i+2].category %>
-                  &qid=<%= ctf[i+2].id %>&placeholder=<%= ctf[i+2].pholder %>&author=<%= ctf[i+2].author %>"
-            >
-              Solve</a
-            >
-          </div>
-          <% } %>
-        </div>
-        <% } %>
+          <% if(i+2==remCTF.length) break %>
+              <div class="chall-box">
+                <p class="chall-text">
+                  <%= remCTF[i+2].title %>
+                </p>
+                <p>
+                  <%= remCTF[i+2].points %> Points
+                </p>
+                <a type="button" class="ctf-link" href="/ctf/challenge?title=<%= remCTF[i+2].title %>&question=<%= remCTF[i+2].question %>
+                  &points=<%= remCTF[i+2].points %>&resource=<%= remCTF[i+2].resource %>&category=<%= remCTF[i+2].category %>
+                  &qid=<%= remCTF[i+2].id %>&placeholder=<%= remCTF[i+2].pholder %>&author=<%= remCTF[i+2].author %>">
+                  Solve</a>
+              </div>
       </div>
+      <% } %>
+        </div>
     </main>
-  </body>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </html>

@@ -708,7 +708,7 @@ var ctf = [
     question: "After some basic rounds, let's see how you do in a not so basic challenge.",
     points: 270,
     author: 'mystog3n',
-    resource: null,
+    resource: 'https://drive.google.com/uc?export=download%26id=1kBosz7OCN_j333gl-68eOH1Inngn6y01',
     flag: 'IEEENCU.CTF{FUNCT10N5-4R3NT-FUN-4ND-345Y}',
     category: 'Rev',
     pholder: 'IEEENCU.CTF{}',

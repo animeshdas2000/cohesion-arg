@@ -29,7 +29,7 @@ function initializeClock (id, endtime) {
   updateClock ();
   const timeinterval = setInterval (updateClock, 1000);
 }
-const deadline = 'February 08 2021 03:00:00 GMT+0530';
+const deadline = 'February 07 2021 00:00:00 GMT+0530';
 $ (function () {
   initializeClock ('clockdiv', deadline);
 

@@ -18,6 +18,26 @@ function login () {
   });
 }
 
+function updateEmail () {
+  $.ajax ({
+    url: '/users/changeEmail',
+    type: 'post',
+    contentType: 'application/json',
+    dataType: 'json',
+    data: JSON.stringify ({
+      email: $ ('#email').val (),
+      uid: readCookie('uid')
+    }),
+    success: function (data) {
+      $ ('#msg').text (data.msg);
+      location.reload();
+    },
+    error: function (jqXhr, textStatus, errorMessage) {
+      $ ('#msg').text (jqXhr.responseJSON.msg);
+    },
+  });
+}
+
 function resetPassword () {
   $.ajax ({
     url: '/users/resetpass',
@@ -75,7 +95,6 @@ $ (function () {
     }
   });
 
-  if (readCookie ('uid') != null) location.href = '/';
 
   $ ('#resetEmail').keyup (function () {
     if (!isEmail ($ ('#resetEmail').val ())) {

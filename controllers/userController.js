@@ -83,16 +83,16 @@ function sendEmail (name, email) {
   );
 }
 
-exports.changeEmail = function (req, res) {
-  admin
-    .auth ()
-    .updateUser (req.uid, {
-      email: req.body.email,
-    })
-    .then (userRecord => {
-      res.send({msg:"Successfully updated!"});
-    })
-    .catch (error => {
-      res.send({msg:"Some error occurred!"});
-    });
-};
+// exports.changeEmail = function (req, res) {
+//   admin
+//     .auth ()
+//     .updateUser (req.uid, {
+//       email: req.body.email,
+//     })
+//     .then (userRecord => {
+//       res.send({msg:"Successfully updated!"});
+//     })
+//     .catch (error => {
+//       res.send({msg:"Some error occurred!"});
+//     });
+// };

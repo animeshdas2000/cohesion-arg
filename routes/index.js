@@ -29,12 +29,12 @@ router.get ('/arg/ggez',auth,index_controller.ggez)
 router.get ('/arg/GGEZ',auth,index_controller.ggez)
 
 router.get ('/login', index_controller.login);
-router.get('/thank-you-for-playing',auth,(req,res,next)=>{
-  res.render ('thank-you');
-});
-router.get('/thank-you-for-playing-ctf',auth,(req,res,next)=>{
-  res.render ('thank-you-ctf');
-});
+// router.get('/thank-you-for-playing',auth,(req,res,next)=>{
+//   res.render ('thank-you');
+// });
+// router.get('/thank-you-for-playing-ctf',auth,(req,res,next)=>{
+//   res.render ('thank-you-ctf');
+// });
 
 
 module.exports = router;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARG LeaderBoard</title>
+  <%- include('partials/style.ejs') %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+    <h1 class="h1-white">ARG Leaderboard</h1>
+    <br><br>
+    <div class="container">
+      <table class="table table-striped table-hover table-responsive  text-center">
+        <thead class="table-white">
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>ARG Level</th>
+          </tr>
+        </thead>
+        <% leaderboard.forEach(function(player,index){ %>
+          <tr class="table-dark">
+            <th>
+              <%= index+1 %>
+            </th>
+            <td>
+              <%= player.name %>
+            </td>
+            <td>
+              <% if(player.arglevel==19){ %>
+                Completed!
+                <% } else{ %>
+                  <%= player.arglevel %>
+                    <% } %>
+            </td>
+          </tr>
+          <% }); %>
+            </tbody>
+      </table>
+    </div>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</html>

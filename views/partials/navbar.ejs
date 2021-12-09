@@ -1,0 +1,50 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/img/white-cohesion.png" alt="Cohesion Logo" width="200px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Play</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/arg/leaderboard">ARG Leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ctf/leaderboard">CTF Leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://discord.com/invite/f49yPp8HVx" target="_blank">Discord</a>
+          </li>
+          <% if(locals.user){ %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+                role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                <%= user%>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" onclick="logout();" href="javascript:void(0);">Logout</a></li>
+              </ul>
+            </li> %>
+            <% } else{ %>
+              <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+</div>
+<script>
+  function logout() {
+    document.cookie = 'uid=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.replace('/login');
+  }
+</script>

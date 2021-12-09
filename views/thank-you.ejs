@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank you!</title>
+    <%- include('partials/style.ejs') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
+  </head>
+  <body style="color: white">
+    <%- include('partials/navbar.ejs') %>
+    <main class="container">
+      <h1 class="h1-white">Thank you!</h1>
+      <h3 style="text-align: center">
+        We will verify records and release winners on 9<sup>th</sup> February
+        2021. <br />
+        Please fill the feedback below:
+        <div class="reg-box">
+          <div class="label-div">
+            <h3 class="label-black">
+              Is it this right email? <br />Email<br />
+              Kindly verify this would be used for futher communication
+            </h3>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <label class="form-check-label" for="inlineRadio1">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="option2"
+              />
+              <label class="form-check-label" for="inlineRadio2">No</label>
+            </div>
+          </div>
+          <!-- <div class="label-div">
+            <h3 class="label-black">
+                Rating Overall 
+            </h3>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="option2"
+              />
+              <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio3"
+                value="option3"
+              />
+              <label class="form-check-label" for="inlineRadio3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio4"
+                value="option4"
+              />
+              <label class="form-check-label" for="inlineRadio4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio5"
+                value="option5"
+              />
+              <label class="form-check-label" for="inlineRadio5">5</label>
+            </div>
+          </div>
+
+          <input class="auth-input" type="text" placeholder="Name" id="name" />
+          <div id="name_error" class="error"></div> -->
+
+          <input
+            class="auth-input"
+            type="email"
+            placeholder="Please Enter correct Email"
+            id="email"
+          />
+          <div id="email_error" class="error"></div>
+
+          <!-- <input
+            class="auth-input"
+            type="text"
+            placeholder="Referred By"
+            id="referredBy"
+          /> -->
+          <!-- <div id="" class="error"></div> -->
+          <button class="auth-btn" id="register">Register</button>
+          <br />
+          <div id="msg" class="error"></div>
+        </div>
+      </h3>
+    </main>
+  </body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</html>

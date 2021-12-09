@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you!</title>
+  <%- include('partials/style.ejs') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/login.js"></script>
+</head>
+
+<body style="color: white">
+  <%- include('partials/navbar.ejs') %>
+    <main class="container">
+      <h1 class="h1-white">Thank you!</h1><br><br>
+      <h3 style="text-align: center">
+        For joining and making Cohesion 2021 a Success! <br /><br>
+        We appreciate your efforts, hence we will verify records and release
+        winners on <br />
+        <br>
+        <span style="font-size: 50px;">9<sup>th</sup> February 2021. <br /><br></span>
+        <div class="reg-box">
+          <div class="label-div">
+            <h3 class="label-black">
+              Kindly verify your email address as this would be used for futher communication:
+            </h3>
+          </div>
+          <br>
+          <span class="label-black">
+            <%= email %>
+          </span>
+          <br>
+          <button class="auth-btn" id="forgotPass">Update</button>
+          <div id="msg" class="error"></div>
+        </div><br><br>
+        Join the Discord server and follow our social handles for Updates:
+        <br /><br>
+        <a href="https://www.instagram.com/cohesion.ieeencu/"><i class="fa fa-instagram social-icon"></i></a>
+        <a href="https://www.facebook.com/cohesion.ieeencu"><i class="fa fa-facebook social-icon"></i></a>
+      </h3>
+      <div class="modal fade" id="resetPass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" style="background-color: #1b1b1b">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Update Email</h4>
+            </div>
+            <div class="modal-body mt-2">
+              <div>
+                <input type="email" id="email" placeholder="Enter email address" class="form-control validate" />
+                <p id="reset-error" class="error pt-3 text-center"></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="auth-btn waves-effect" id="#reset" onclick="updateEmail()">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</html>

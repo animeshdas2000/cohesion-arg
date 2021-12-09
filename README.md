@@ -4,6 +4,10 @@ An webapp developed for Cohesion 2021 organized by IEEE Computer Society.
 ## About the Project
 The project was created for providing the participants with a platform for CTF and ARG where the event could take place smoothly. 
 
+## Live Demo 
+To be out soon. \
+Few Security Fixes pending :)
+
 
 ## How to run the Project on your local Machine:
 
